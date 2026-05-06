@@ -14,13 +14,13 @@
             theme: {
                 extend: {
                     colors: {
-                        cream:       '#F3EDE5',
-                        'cream-dark':'#E6DDD4',
-                        'brand-dark':'#1A1412',
-                        'brand-rose':'#C09B8D',
+                        cream:            '#F3EDE5',
+                        'cream-dark':     '#E6DDD4',
+                        'brand-dark':     '#1A1412',
+                        'brand-rose':     '#C09B8D',
                         'brand-rose-light':'#DEC9C0',
-                        'brand-gold':'#8B7A56',
-                        'brand-mid': '#5C4E47',
+                        'brand-gold':     '#8B7A56',
+                        'brand-mid':      '#5C4E47',
                     },
                     fontFamily: {
                         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -40,7 +40,6 @@
         }
 
         * { box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -49,7 +48,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── Fade-in on scroll ── */
+        /* Fade-in on scroll */
         .fade-in {
             opacity: 0;
             transform: translateY(24px);
@@ -60,7 +59,7 @@
             transform: translateY(0);
         }
 
-        /* ── Section label ── */
+        /* Section label */
         .section-label {
             display: inline-block;
             letter-spacing: 0.22em;
@@ -71,7 +70,7 @@
             font-weight: 500;
         }
 
-        /* ── Nav link underline ── */
+        /* Nav link underline */
         .nav-link { position: relative; }
         .nav-link::after {
             content: '';
@@ -83,7 +82,7 @@
         }
         .nav-link:hover::after { width: 100%; }
 
-        /* ── Service card hover ── */
+        /* Service card hover */
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -92,22 +91,14 @@
             box-shadow: 0 16px 48px rgba(26,20,18,0.10);
         }
 
-        /* ── Hero geometric ambient ── */
+        /* Hero ambient */
         .hero-ambient {
             background:
                 radial-gradient(ellipse 60% 60% at 15% 55%, rgba(192,155,141,0.14) 0%, transparent 60%),
                 radial-gradient(ellipse 45% 45% at 85% 20%, rgba(139,122,86,0.10) 0%, transparent 55%);
         }
 
-        /* ── Metric gradient text ── */
-        .metric-grad {
-            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ── Form inputs ── */
+        /* Form inputs */
         .form-input {
             width: 100%;
             padding: 12px 16px;
@@ -122,12 +113,38 @@
         .form-input::placeholder { color: rgba(222,201,192,0.35); }
         .form-input:focus { border-color: var(--rose); }
 
-        /* ── Scrollbar ── */
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 400px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.open {
+            transform: rotate(45deg);
+        }
+
+        /* Step connector line */
+        .step-connector {
+            position: absolute;
+            top: 28px;
+            left: calc(50% + 28px);
+            right: calc(-50% + 28px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--rose), transparent);
+        }
+
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--cream); }
         ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
 
-        /* ── Stagger delay helpers ── */
+        /* Stagger delays */
         .delay-1 { transition-delay: 0.08s; }
         .delay-2 { transition-delay: 0.16s; }
         .delay-3 { transition-delay: 0.24s; }
@@ -135,8 +152,17 @@
         .delay-5 { transition-delay: 0.40s; }
         .delay-6 { transition-delay: 0.48s; }
 
-        /* ── Hamburger bars ── */
+        /* Hamburger bars */
         .bar { display:block; width:22px; height:1.5px; background:var(--dark); transition:all 0.3s ease; }
+
+        /* Team card */
+        .team-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26,20,18,0.12);
+        }
     </style>
 </head>
 
@@ -164,15 +190,16 @@
 
         <!-- Desktop links -->
         <div class="hidden md:flex items-center gap-8">
-            <a href="#about"        class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">About</a>
-            <a href="#services"     class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Services</a>
-            <a href="#case-studies" class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Case Studies</a>
-            <a href="#contact"      class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Contact</a>
+            <a href="#about"             class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">About</a>
+            <a href="#automation-systems" class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Automation Systems</a>
+            <a href="#how-it-works"      class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">How It Works</a>
+            <a href="#faq"               class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">FAQ</a>
+            <a href="#contact"           class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Contact</a>
         </div>
 
         <!-- CTA -->
         <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-dark text-cream text-[0.78rem] font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300">
-            Book Free Audit
+            Book a Systems Strategy Session
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
 
@@ -186,11 +213,12 @@
 
     <!-- Mobile drawer -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-cream-dark bg-cream px-6 py-5 flex flex-col gap-4">
-        <a href="#about"        class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">About</a>
-        <a href="#services"     class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Services</a>
-        <a href="#case-studies" class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Case Studies</a>
-        <a href="#contact"      class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Contact</a>
-        <a href="#contact" class="mt-2 inline-flex justify-center px-6 py-3 bg-brand-dark text-cream text-sm font-medium" onclick="toggleMenu()">Book Free Audit</a>
+        <a href="#about"             class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">About</a>
+        <a href="#automation-systems" class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Automation Systems</a>
+        <a href="#how-it-works"      class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">How It Works</a>
+        <a href="#faq"               class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">FAQ</a>
+        <a href="#contact"           class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex justify-center px-6 py-3 bg-brand-dark text-cream text-sm font-medium" onclick="toggleMenu()">Book a Systems Strategy Session</a>
     </div>
 </nav>
 
@@ -212,7 +240,7 @@
                     <span class="text-brand-rose">Your Team Focuses on Care.</span>
                 </h1>
                 <p class="text-brand-mid font-light leading-relaxed mb-10 max-w-lg" style="font-size:1.05rem;">
-                  I design HIPAA-aligned automation systems for scheduling, intake, follow-ups, and billing so your team can focus on patient care instead of manual tasks.
+                    We design HIPAA-aligned automation systems for scheduling, intake, follow-ups, and billing — so your team can focus on patient care instead of manual tasks.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#contact"
@@ -222,7 +250,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="#about"
+                    <a href="#how-it-works"
                        class="inline-flex items-center justify-center px-8 py-4 border border-brand-dark text-brand-dark text-sm font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300">
                         See How It Works
                     </a>
@@ -232,15 +260,15 @@
                 <div class="mt-14 flex flex-wrap gap-0 divide-x divide-brand-rose-light">
                     <div class="pr-10">
                         <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">Improve</div>
-                        <div class="section-label mt-1.5" style="color:var(--gold)">scheduling efficiency</div>
+                        <div class="section-label mt-1.5">Scheduling Efficiency</div>
                     </div>
                     <div class="px-10">
                         <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">Reduce</div>
-                        <div class="section-label mt-1.5" style="color:var(--gold)">no-shows and missed follow-ups</div>
+                        <div class="section-label mt-1.5">No-Shows &amp; Missed Follow-ups</div>
                     </div>
                     <div class="pl-10">
                         <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">Save</div>
-                        <div class="section-label mt-1.5" style="color:var(--gold)">hours of manual coordination</div>
+                        <div class="section-label mt-1.5">Hours of Manual Coordination</div>
                     </div>
                 </div>
             </div>
@@ -260,8 +288,8 @@
                                 <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
                             </svg>
                             <div>
-                                <div class="font-serif text-brand-dark text-lg font-medium">Example Clinic Workflow System</div>
-                                <div class="text-xs text-brand-gold tracking-wide">A simplified view of how clinic operations can be automated end-to-end.</div>
+                                <div class="font-serif text-brand-dark text-lg font-medium">Live Clinic Workflow</div>
+                                <div class="text-xs text-brand-gold tracking-wide">Automated end-to-end operations</div>
                             </div>
                         </div>
 
@@ -269,17 +297,17 @@
                             <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
                                 <span class="text-sm text-brand-mid flex-1">Patient intake received</span>
-                                <span class="text-xs text-brand-gold font-medium">✓ Completed</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
                             </div>
                             <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
                                 <span class="text-sm text-brand-mid flex-1">Appointment auto-scheduled</span>
-                                <span class="text-xs text-brand-gold font-medium">✓ Completed</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
                             </div>
                             <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
                                 <span class="text-sm text-brand-mid flex-1">SMS reminder sent</span>
-                                <span class="text-xs text-brand-gold font-medium">✓ Completed</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
                             </div>
                             <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 animate-pulse"></span>
@@ -301,85 +329,151 @@
 
 
 <!-- ═══════════════════════════════════════════
-     ABOUT
+     ABOUT — Founder + Team
 ════════════════════════════════════════════ -->
-     <section id="about" class="py-24 lg:py-36 bg-brand-dark">
+<section id="about" class="py-24 lg:py-36 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-    <div className="relative">
-      <img
-        src="photo.png.jpeg"
-        alt="Founder of Orkestrix Solutions"
-        className="w-full h-[420px] object-cover rounded-2xl shadow-lg"
-      />
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/40 to-transparent" />
-      <div className="absolute bottom-4 left-4 text-white text-sm font-medium">
-        Maricar Culala · Founder & Systems Strategist
-      </div>
-    </div>
 
-    <!-- Story -->
-            <div class="fade-in order-1 lg:order-2">
-                <div class="section-label mb-5" style="color:var(--gold)">About Orkestrix</div>
-                <h2 class="font-serif font-light text-cream leading-tight mb-8"
-                    style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+        <!-- Section heading -->
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-4" style="color:var(--gold)">About Orkestrix</div>
+            <h2 class="font-serif font-light text-cream leading-tight"
+                style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                A Studio Built Around<br/><em class="italic text-brand-rose">Operational Clarity</em>
+            </h2>
+        </div>
 
-      <h2 class="font-serif font-light text-cream leading-tight mb-8"
-                    style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
-        Orkestrix Solutions<br/>to <em class="italic text-brand-rose"> is a systems automation studio built around one core idea: businesses should not have to fight their own workflows to operate efficiently.
-      </p></em>
-                </h2>
+        <!-- Mission statement -->
+        <div class="max-w-3xl mx-auto text-center mb-20 fade-in delay-1">
+            <p class="font-light leading-relaxed" style="color:rgba(222,201,192,0.72); font-size:1.05rem;">
+                Orkestrix Solutions is a systems automation studio built around one core idea: clinics should never have to fight their own workflows to deliver great care. We combine deep healthcare operations experience with modern AI tools to design systems that actually work — for your team, your patients, and your bottom line.
+            </p>
+        </div>
 
-      <div class="space-y-5 font-light leading-relaxed" style="color:rgba(222,201,192,0.75); font-size:0.97rem;">
+        <!-- Founder + Team grid -->
+        <div class="grid lg:grid-cols-2 gap-10 items-start mb-20">
+
+            <!-- Founder card -->
+            <div class="fade-in delay-1 bg-white/5 border border-brand-rose/15 p-8">
+                <div class="flex items-start gap-6 mb-6">
+                    <!-- Founder avatar placeholder -->
+                    <div class="w-20 h-20 flex-shrink-0 bg-brand-rose/15 border border-brand-rose/30 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-brand-rose/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Founder &amp; Systems Strategist</div>
+                        <h3 class="font-serif text-cream text-2xl font-light mb-0.5">Maricar Culala</h3>
+                        <p class="text-brand-rose text-xs tracking-wide">Former Patient Care Coordinator → Automation Strategist</p>
+                    </div>
+                </div>
+                <div class="space-y-4 font-light leading-relaxed" style="color:rgba(222,201,192,0.70); font-size:0.93rem;">
                     <p>
-        Founded by Marisa, a former Patient Care Coordinator turned automation strategist, the studio is shaped by firsthand experience inside high-pressure healthcare environments where fragmented systems directly impact care quality.
-      </p>
+                        Maricar spent years inside high-pressure healthcare environments — managing patient intake, coordinating care across departments, and watching capable teams get buried under repetitive administrative work.
+                    </p>
+                    <p>
+                        That firsthand experience is the foundation of Orkestrix. She leads every client engagement, ensuring that the systems we build reflect how clinics actually operate — not how software vendors assume they do.
+                    </p>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-4 border-t border-brand-rose/15 pt-6">
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Focus</div>
+                        <div class="text-cream text-sm font-light">AI Automation &amp; Workflow Design</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Approach</div>
+                        <div class="text-cream text-sm font-light">Human-Centered Systems</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Background</div>
+                        <div class="text-cream text-sm font-light">Healthcare Operations</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Compliance</div>
+                        <div class="text-cream text-sm font-light">HIPAA-First Design</div>
+                    </div>
+                </div>
+            </div>
 
-      <p className="mt-4 text-gray-700 leading-relaxed">
-        While Marisa leads strategy and solution design, Orkestrix operates with a collaborative team of automation specialists who build, integrate, and refine systems across platforms. This structure allows us to combine human-centered understanding with scalable technical execution.
-      </p>
+            <!-- Team description -->
+            <div class="fade-in delay-2 space-y-8">
+                <div class="bg-white/5 border border-brand-rose/15 p-8">
+                    <div class="w-10 h-10 mb-5 flex items-center justify-center border border-brand-rose/25">
+                        <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-cream text-xl font-light mb-3">Our Collaborative Team</h3>
+                    <p class="font-light leading-relaxed text-sm" style="color:rgba(222,201,192,0.68);">
+                        Maricar leads strategy and solution design, but Orkestrix operates with a dedicated team of automation specialists, integration engineers, and workflow architects. This structure lets us combine human-centered understanding with scalable technical execution — delivering results that a single consultant never could.
+                    </p>
+                </div>
 
-      <p className="mt-4 text-gray-700 leading-relaxed">
-        The goal is simple: reduce operational friction so teams can focus on what actually matters—service, outcomes, and growth.
-      </p>
+                <div class="bg-white/5 border border-brand-rose/15 p-8">
+                    <div class="w-10 h-10 mb-5 flex items-center justify-center border border-brand-rose/25">
+                        <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-cream text-xl font-light mb-3">Our Promise</h3>
+                    <p class="font-light leading-relaxed text-sm" style="color:rgba(222,201,192,0.68);">
+                        We don't sell generic software. Every system we build is mapped to your specific workflows, your EHR, and your team's real day-to-day. We stay with you through implementation, training, and optimization — because a system is only as good as its adoption.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-      {/* Stats */}
-      <div className="mt-8 grid grid-cols-2 gap-6 border-t pt-6">
-        <div>
-          <div className="text-xs uppercase tracking-wide text-gray-500">Role</div>
-          <div className="font-medium">Founder & Systems Strategist</div>
+        <!-- Team roles strip -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-in delay-3">
+            <div class="border border-brand-rose/12 p-5 text-center">
+                <div class="w-9 h-9 mx-auto mb-3 flex items-center justify-center border border-brand-rose/20">
+                    <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div class="section-label mb-1" style="color:var(--gold)">Strategy</div>
+                <div class="text-cream text-xs font-light leading-snug">Systems design &amp; workflow architecture</div>
+            </div>
+            <div class="border border-brand-rose/12 p-5 text-center">
+                <div class="w-9 h-9 mx-auto mb-3 flex items-center justify-center border border-brand-rose/20">
+                    <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                </div>
+                <div class="section-label mb-1" style="color:var(--gold)">Engineering</div>
+                <div class="text-cream text-xs font-light leading-snug">Automation builds &amp; API integrations</div>
+            </div>
+            <div class="border border-brand-rose/12 p-5 text-center">
+                <div class="w-9 h-9 mx-auto mb-3 flex items-center justify-center border border-brand-rose/20">
+                    <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                </div>
+                <div class="section-label mb-1" style="color:var(--gold)">Compliance</div>
+                <div class="text-cream text-xs font-light leading-snug">HIPAA review &amp; documentation</div>
+            </div>
+            <div class="border border-brand-rose/12 p-5 text-center">
+                <div class="w-9 h-9 mx-auto mb-3 flex items-center justify-center border border-brand-rose/20">
+                    <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <div class="section-label mb-1" style="color:var(--gold)">Support</div>
+                <div class="text-cream text-xs font-light leading-snug">Ongoing optimization &amp; training</div>
+            </div>
         </div>
-        <div>
-          <div className="text-xs uppercase tracking-wide text-gray-500">Focus</div>
-          <div className="font-medium">AI Automation & Workflow Design</div>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-wide text-gray-500">Approach</div>
-          <div className="font-medium">Human-centered Systems</div>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-wide text-gray-500">Model</div>
-          <div className="font-medium">Collaborative Studio</div>
-        </div>
-      </div>
+
     </div>
-  </div>
 </section>
 
+
 <!-- ═══════════════════════════════════════════
-     SERVICES
+     AUTOMATION SYSTEMS (was: Services)
 ════════════════════════════════════════════ -->
-<section id="services" class="py-24 lg:py-36 bg-cream">
+<section id="automation-systems" class="py-24 lg:py-36 bg-cream">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
         <div class="text-center mb-16 fade-in">
-            <div class="section-label mb-4">What I Do</div>
+            <div class="section-label mb-4">What We Build</div>
             <h2 class="font-serif font-light text-brand-dark leading-tight mb-4"
                 style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
-                Intelligent Automation<br/><em class="italic text-brand-rose">Built for Healthcare</em>
+                Automation Systems<br/><em class="italic text-brand-rose">Built for Healthcare</em>
             </h2>
             <p class="text-brand-mid font-light max-w-xl mx-auto leading-relaxed">
-                Every solution is architectured with HIPAA compliance at its core and your real clinical workflow in mind. No generic tech. No disruption. Just measurable results.
+                Every system is architected with HIPAA compliance at its core and your real clinical workflow in mind. No generic tech. No disruption. Just measurable results.
             </p>
         </div>
 
@@ -392,7 +486,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">AI Patient Intake &amp; Scheduling</h3>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Patient Intake &amp; Scheduling Automation</h3>
                 <p class="text-brand-mid font-light text-sm leading-relaxed">
                     Intelligent intake forms that auto-populate records, match patients with the right providers, and fill your calendar 24/7 — without a single phone call.
                 </p>
@@ -405,7 +499,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Automated Follow-ups &amp; No-Show Reduction</h3>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">No-Show Prevention &amp; Follow-up Systems</h3>
                 <p class="text-brand-mid font-light text-sm leading-relaxed">
                     Multi-channel reminder sequences via SMS, email, and voice — perfectly timed to reduce no-shows by up to 60% and automatically re-fill cancelled slots.
                 </p>
@@ -431,7 +525,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Custom AI Chatbots for Patients</h3>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">AI Patient Chatbots &amp; Portal Assistants</h3>
                 <p class="text-brand-mid font-light text-sm leading-relaxed">
                     HIPAA-compliant AI assistants for your website and patient portal — answering FAQs, capturing new leads, and guiding patients through intake around the clock.
                 </p>
@@ -444,13 +538,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Workflow Optimization &amp; Staff Efficiency</h3>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Staff Efficiency &amp; Workflow Optimization</h3>
                 <p class="text-brand-mid font-light text-sm leading-relaxed">
-                    End-to-end mapping of your current processes, identifying automation opportunities that free your team from repetitive tasks while maintaining quality and compliance.
+                    End-to-end mapping of your current processes to identify automation opportunities that free your team from repetitive tasks while maintaining quality and compliance.
                 </p>
             </div>
 
-            <!-- 6 – HIPAA card (dark) -->
+            <!-- 6 – HIPAA dark card -->
             <div class="service-card fade-in delay-6 bg-brand-dark p-8 border border-brand-dark cursor-default relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-28 h-28 border-l border-b border-brand-rose/10 pointer-events-none"></div>
                 <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/30">
@@ -458,10 +552,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
                 </div>
-                <div class="section-label mb-2" style="color:var(--gold)">All Solutions Are</div>
+                <div class="section-label mb-2" style="color:var(--gold)">Every System We Build Is</div>
                 <h3 class="font-serif text-[1.15rem] font-medium text-cream mb-3">HIPAA-Compliant by Design</h3>
                 <p class="font-light text-sm leading-relaxed" style="color:rgba(222,201,192,0.65);">
-                    Every automation is architectured with patient privacy at its core — encrypted data handling, full audit trails, and BAA agreements for every applicable tool.
+                    Every automation we build has patient privacy at its core — encrypted data handling, full audit trails, and BAA agreements for every applicable tool.
                 </p>
             </div>
 
@@ -471,119 +565,327 @@
 
 
 <!-- ═══════════════════════════════════════════
-     CASE STUDIES
+     HOW IT WORKS (was: Case Studies)
 ════════════════════════════════════════════ -->
-<section id="case-studies" class="py-24 lg:py-36 bg-cream-dark">
+<section id="how-it-works" class="py-24 lg:py-36 bg-cream-dark">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <div class="text-center mb-16 fade-in">
-            <div class="section-label mb-4">Real Results</div>
-            <h2 class="font-serif font-light text-brand-dark leading-tight"
+        <div class="text-center mb-20 fade-in">
+            <div class="section-label mb-4">Our Process</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight mb-4"
                 style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
-                Clinics That <em class="italic text-brand-rose">Transformed</em>
+                How It <em class="italic text-brand-rose">Works</em>
             </h2>
+            <p class="text-brand-mid font-light max-w-xl mx-auto leading-relaxed">
+                From first conversation to fully operational system — we guide you through every step. Most clinics go live within 4–6 weeks.
+            </p>
         </div>
 
-        <!-- ── ALL THREE CASE STUDY CARDS ── -->
-        <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Steps -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
 
-            <!-- Card 01 -->
-            <div class="fade-in delay-1 bg-cream p-8 border border-brand-rose/10 flex flex-col">
-                <div class="section-label mb-1">Case Study · 01</div>
-                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">No-Show Recovery Automation</h3>
-                <p class="text-brand-gold text-xs tracking-wide mb-7">Multi-specialty clinic · 4 providers · 2 locations</p>
-                <div class="space-y-5 mb-8 flex-1">
-                    <div>
-                        <div class="section-label mb-1.5">The Challenge</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">18–22% monthly no-show rate with no structured recovery. Front desk spending 10 hrs/week on manual callbacks with zero compliance documentation.</p>
-                    </div>
-                    <div class="h-px bg-brand-rose/15"></div>
-                    <div>
-                        <div class="section-label mb-1.5">The Solution</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">HIPAA-compliant 4-touch automated outreach (SMS + email) with AI sentiment scanning and EHR-triggered no-show detection.</p>
-                    </div>
+            <!-- Step 01 -->
+            <div class="fade-in delay-1 bg-cream p-8 border border-brand-rose/15 relative">
+                <div class="w-12 h-12 border-2 border-brand-dark flex items-center justify-center mb-6">
+                    <span class="font-serif text-brand-dark text-lg font-light">01</span>
                 </div>
-                <div class="bg-brand-dark p-6 mb-5">
-                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
-                    <div class="grid grid-cols-2 gap-y-5">
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">41%</div><div class="text-cream/50 text-xs mt-0.5">No-Show Recovery</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">$6,200</div><div class="text-cream/50 text-xs mt-0.5">Revenue Recovered / Mo</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">8 hrs</div><div class="text-cream/50 text-xs mt-0.5">Staff Hours Freed / Wk</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">0 hrs</div><div class="text-cream/50 text-xs mt-0.5">Extra Staff Required</div></div>
-                    </div>
-                </div>
-                <a href="case-study-01.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
-                    Read Full Case Study
-                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+                <h3 class="font-serif text-xl font-medium text-brand-dark mb-3">Discovery Audit</h3>
+                <p class="text-brand-mid text-sm font-light leading-relaxed mb-4">
+                    We map your current workflow end-to-end — scheduling, intake, documentation, billing, and communication. We identify your top time drains and automation opportunities.
+                </p>
+                <div class="section-label" style="color:var(--gold)">30-Minute Call · Free</div>
             </div>
 
-            <!-- Card 02 -->
-            <div class="fade-in delay-2 bg-cream p-8 border border-brand-rose/10 flex flex-col">
-                <div class="section-label mb-1">Case Study · 02</div>
-                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">Physical Therapy Clinic</h3>
-                <p class="text-brand-gold text-xs tracking-wide mb-7">Solo PT · 2 support staff</p>
-                <div class="space-y-5 mb-8 flex-1">
-                    <div>
-                        <div class="section-label mb-1.5">The Challenge</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">Therapist spending 2+ hours on after-hours documentation. Insurance verification taking 45 minutes per new patient, delaying care starts.</p>
-                    </div>
-                    <div class="h-px bg-brand-rose/15"></div>
-                    <div>
-                        <div class="section-label mb-1.5">The Solution</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">AI-assisted SOAP note generation from voice dictation + automated insurance verification triggered on intake submission.</p>
-                    </div>
+            <!-- Step 02 -->
+            <div class="fade-in delay-2 bg-cream p-8 border border-brand-rose/15 relative">
+                <div class="w-12 h-12 border-2 border-brand-rose flex items-center justify-center mb-6">
+                    <span class="font-serif text-brand-rose text-lg font-light">02</span>
                 </div>
-                <div class="bg-brand-dark p-6 mb-5">
-                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
-                    <div class="grid grid-cols-2 gap-y-5">
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">80%</div><div class="text-cream/50 text-xs mt-0.5">Documentation Time Cut</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">8 min</div><div class="text-cream/50 text-xs mt-0.5">Insurance Check (was 45)</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">+3</div><div class="text-cream/50 text-xs mt-0.5">Patients / Day Capacity</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">$38k</div><div class="text-cream/50 text-xs mt-0.5">Annual Revenue Added</div></div>
-                    </div>
-                </div>
-                <a href="case-study-02.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
-                    Read Full Case Study
-                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+                <h3 class="font-serif text-xl font-medium text-brand-dark mb-3">Systems Blueprint</h3>
+                <p class="text-brand-mid text-sm font-light leading-relaxed mb-4">
+                    Our team designs a custom automation architecture for your clinic — showing exactly what we'll build, how it connects to your existing tools, and the ROI you can expect.
+                </p>
+                <div class="section-label" style="color:var(--gold)">1–2 Weeks · Strategy Phase</div>
             </div>
 
-            <!-- Card 03 -->
-            <div class="fade-in delay-3 bg-cream p-8 border border-brand-rose/10 flex flex-col">
-                <div class="section-label mb-1">Case Study · 03</div>
-                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">Multi-Specialty Group</h3>
-                <p class="text-brand-gold text-xs tracking-wide mb-7">5 specialties · 3 locations · 18 staff</p>
-                <div class="space-y-5 mb-8 flex-1">
-                    <div>
-                        <div class="section-label mb-1.5">The Challenge</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">Disjointed patient communication across locations, an 18% claim denial rate, and staff overwhelmed by disconnected manual processes.</p>
-                    </div>
-                    <div class="h-px bg-brand-rose/15"></div>
-                    <div>
-                        <div class="section-label mb-1.5">The Solution</div>
-                        <p class="text-brand-mid text-sm font-light leading-relaxed">Unified AI communication hub + automated billing audit workflow + custom AI patient portal chatbot across all three locations.</p>
-                    </div>
+            <!-- Step 03 -->
+            <div class="fade-in delay-3 bg-cream p-8 border border-brand-rose/15 relative">
+                <div class="w-12 h-12 border-2 border-brand-rose flex items-center justify-center mb-6">
+                    <span class="font-serif text-brand-rose text-lg font-light">03</span>
                 </div>
-                <div class="bg-brand-dark p-6 mb-5">
-                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
-                    <div class="grid grid-cols-2 gap-y-5">
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">6%</div><div class="text-cream/50 text-xs mt-0.5">Denial Rate (was 18%)</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">$52k</div><div class="text-cream/50 text-xs mt-0.5">Revenue Recovered / Qtr</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">48h</div><div class="text-cream/50 text-xs mt-0.5">Weekly Staff Hours Freed</div></div>
-                        <div><div class="font-serif text-3xl font-light text-brand-rose">340%</div><div class="text-cream/50 text-xs mt-0.5">ROI in First Year</div></div>
-                    </div>
-                </div>
-                <a href="case-study-03.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
-                    Read Full Case Study
-                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+                <h3 class="font-serif text-xl font-medium text-brand-dark mb-3">Build &amp; Integrate</h3>
+                <p class="text-brand-mid text-sm font-light leading-relaxed mb-4">
+                    We build, configure, and connect your automation systems to your EHR, scheduling software, and communication tools — with HIPAA compliance documented at every layer.
+                </p>
+                <div class="section-label" style="color:var(--gold)">2–4 Weeks · Build Phase</div>
             </div>
 
-        </div><!-- end case study grid -->
+            <!-- Step 04 -->
+            <div class="fade-in delay-4 bg-brand-dark p-8 border border-brand-dark relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 border-l border-b border-brand-rose/10"></div>
+                <div class="w-12 h-12 border-2 border-brand-rose flex items-center justify-center mb-6">
+                    <span class="font-serif text-brand-rose text-lg font-light">04</span>
+                </div>
+                <h3 class="font-serif text-xl font-medium text-cream mb-3">Launch &amp; Optimize</h3>
+                <p class="text-sm font-light leading-relaxed mb-4" style="color:rgba(222,201,192,0.68);">
+                    We train your team, go live alongside you, and monitor performance for the first 30 days. Then we optimize based on real data — so your system keeps improving over time.
+                </p>
+                <div class="section-label" style="color:var(--gold)">Ongoing · Growth Phase</div>
+            </div>
+        </div>
+
+        <!-- Results proof strip -->
+        <div class="fade-in delay-2">
+            <div class="text-center mb-10">
+                <div class="section-label mb-2">Real Results Across Clinic Types</div>
+                <p class="text-brand-mid text-sm font-light">A snapshot of outcomes our clients have achieved within the first 90 days.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Result 01 -->
+                <div class="bg-cream p-8 border border-brand-rose/10">
+                    <div class="section-label mb-2">Multi-Specialty Clinic · 4 Providers</div>
+                    <h4 class="font-serif text-xl font-light text-brand-dark mb-5">No-Show Recovery Automation</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">41%</div>
+                            <div class="section-label mt-0.5">No-Shows Recovered</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">$6,200</div>
+                            <div class="section-label mt-0.5">Revenue / Month</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">8 hrs</div>
+                            <div class="section-label mt-0.5">Staff Freed / Week</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">0</div>
+                            <div class="section-label mt-0.5">Extra Staff Needed</div>
+                        </div>
+                    </div>
+                    <div class="text-brand-mid text-xs font-light italic border-t border-brand-rose/15 pt-4">
+                        4-touch HIPAA-compliant SMS + email outreach with AI sentiment scanning and EHR-triggered detection.
+                    </div>
+                </div>
+
+                <!-- Result 02 -->
+                <div class="bg-cream p-8 border border-brand-rose/10">
+                    <div class="section-label mb-2">Solo PT · 2 Support Staff</div>
+                    <h4 class="font-serif text-xl font-light text-brand-dark mb-5">Documentation &amp; Billing Automation</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">80%</div>
+                            <div class="section-label mt-0.5">Documentation Time Cut</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">8 min</div>
+                            <div class="section-label mt-0.5">Insurance Check (was 45)</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">+3</div>
+                            <div class="section-label mt-0.5">Patients / Day Capacity</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">$38k</div>
+                            <div class="section-label mt-0.5">Annual Revenue Added</div>
+                        </div>
+                    </div>
+                    <div class="text-brand-mid text-xs font-light italic border-t border-brand-rose/15 pt-4">
+                        AI-assisted SOAP note generation from voice dictation + automated insurance verification on intake.
+                    </div>
+                </div>
+
+                <!-- Result 03 -->
+                <div class="bg-cream p-8 border border-brand-rose/10">
+                    <div class="section-label mb-2">5 Specialties · 3 Locations · 18 Staff</div>
+                    <h4 class="font-serif text-xl font-light text-brand-dark mb-5">Full Workflow Transformation</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">6%</div>
+                            <div class="section-label mt-0.5">Denial Rate (was 18%)</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">$52k</div>
+                            <div class="section-label mt-0.5">Revenue Recovered / Qtr</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">48 hrs</div>
+                            <div class="section-label mt-0.5">Weekly Staff Hours Freed</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-light text-brand-dark">340%</div>
+                            <div class="section-label mt-0.5">ROI in First Year</div>
+                        </div>
+                    </div>
+                    <div class="text-brand-mid text-xs font-light italic border-t border-brand-rose/15 pt-4">
+                        Unified AI communication hub + billing audit workflow + AI patient portal chatbot across all locations.
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </div>
 </section>
+
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════ -->
+<section id="faq" class="py-24 lg:py-36 bg-cream">
+    <div class="max-w-4xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-4">Common Questions</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight mb-4"
+                style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                Frequently Asked<br/><em class="italic text-brand-rose">Questions</em>
+            </h2>
+            <p class="text-brand-mid font-light leading-relaxed">
+                Everything you need to know before booking your free audit.
+            </p>
+        </div>
+
+        <div class="space-y-3 fade-in delay-1">
+
+            <!-- FAQ 1 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">Is this really HIPAA-compliant? What does that mean in practice?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            Yes. Every tool and platform we use in your automation stack must be capable of signing a Business Associate Agreement (BAA). We document data flows, ensure PHI is encrypted in transit and at rest, and build audit trail logging into every workflow. We also review your specific state regulations, as some states have stricter requirements than federal HIPAA minimums. You'll receive a full compliance documentation packet for your records.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">Will this work with our existing EHR and scheduling software?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            In most cases, yes. We've built integrations with major EHR platforms including Epic, Athenahealth, Kareo, Jane App, and SimplePractice, among others. During the Discovery Audit, we assess your current tech stack and confirm compatibility before any commitment. If a direct integration isn't available, we use secure middleware to bridge the connection — and we're transparent about any limitations upfront.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">How long does it take to go live?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            Most clinics are fully live within 4–6 weeks. Simpler single-system automations (like a no-show reminder sequence) can launch in as little as 2 weeks. Larger multi-location or multi-system projects typically run 6–8 weeks. We set realistic timelines during the blueprint phase so there are no surprises. We also stage rollouts where appropriate so your team can adapt without disruption.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">Do my staff need technical training to use these systems?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            No technical background is required. We design every system so your front desk and clinical staff can use it without any extra burden. We provide live onboarding sessions, written SOPs, and short video walkthroughs for each workflow we build. Our goal is systems your team actually wants to use — not ones they tolerate. We also offer ongoing support if questions come up after launch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">What does it cost?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            Every engagement is scoped to your specific clinic size and needs, so we don't publish one-size-fits-all pricing. What we can say: the ROI is typically measurable within 60–90 days, and most clients see their investment paid back within the first quarter. The free 30-minute audit exists specifically so we can give you an honest estimate before any commitment. We'd rather tell you it's not the right fit than oversell you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">What happens if something breaks or needs to change after launch?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            We include a 30-day post-launch monitoring and optimization period with every engagement. After that, clients can continue with a maintenance retainer that covers monitoring, updates, and support — or we can transition your team to manage the systems independently with our full documentation. Clinics evolve, and we build systems that can evolve with them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item border border-cream-dark bg-white">
+                <button class="faq-trigger w-full flex items-center justify-between px-7 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-serif text-brand-dark text-[1.05rem] font-medium pr-6">Is this only for large clinics, or do you work with solo practitioners too?</span>
+                    <svg class="faq-icon w-5 h-5 text-brand-rose flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-7 pb-0">
+                    <div class="pb-6 border-t border-cream-dark pt-4">
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">
+                            We work with clinics of all sizes — from solo practitioners and 2-person practices to multi-location group practices with 20+ staff. In fact, solo practitioners often see some of the most dramatic results because automation gives them the operational leverage of a much larger team. The Discovery Audit is the right starting point regardless of size — it tells us exactly what will move the needle for your specific situation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA after FAQ -->
+        <div class="mt-14 text-center fade-in delay-2">
+            <p class="text-brand-mid font-light text-sm mb-5">Still have questions? We're happy to answer them on a call.</p>
+            <a href="#contact"
+               class="inline-flex items-center gap-2 px-8 py-4 bg-brand-dark text-cream text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+                Book a Free 30-Minute Audit
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
 
 <!-- ═══════════════════════════════════════════
      CONTACT
@@ -606,7 +908,7 @@
                 <div class="space-y-7">
                     <div class="flex items-start gap-4">
                         <div class="w-10 h-10 border border-brand-rose/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-4.5 h-4.5 text-brand-rose" style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="text-brand-rose" style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </div>
@@ -668,11 +970,11 @@
                     <div>
                         <label class="block section-label mb-2" style="color:var(--gold)">Your Biggest Operational Challenge</label>
                         <textarea class="form-input resize-none" rows="5"
-                            placeholder="Tell me about your current pain points — scheduling chaos, no-shows, billing headaches, after-hours documentation..."></textarea>
+                            placeholder="Tell us about your current pain points — scheduling chaos, no-shows, billing headaches, after-hours documentation..."></textarea>
                     </div>
                     <button type="submit"
                         class="w-full py-4 bg-brand-rose text-brand-dark text-sm font-medium tracking-widest uppercase hover:bg-cream transition-all duration-300 flex items-center justify-center gap-2 group">
-                        Book My Free Automation Audit
+                        Book a Systems Strategy Session
                         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -684,7 +986,7 @@
                 <div id="success-msg" class="hidden border border-brand-rose/30 p-10 text-center">
                     <div class="font-serif text-4xl text-brand-rose mb-3">✓</div>
                     <p class="font-serif text-cream text-xl font-light mb-2">Thank you.</p>
-                    <p class="font-light text-sm" style="color:rgba(222,201,192,0.65);">I'll reach out within 24 hours to schedule your free audit.</p>
+                    <p class="font-light text-sm" style="color:rgba(222,201,192,0.65);">We'll reach out within 24 hours to schedule your free audit.</p>
                 </div>
             </div>
 
@@ -713,10 +1015,11 @@
         </a>
 
         <div class="flex gap-7 text-[0.72rem] tracking-wide" style="color:rgba(222,201,192,0.4);">
-            <a href="#about"        class="hover:text-brand-rose transition-colors">About</a>
-            <a href="#services"     class="hover:text-brand-rose transition-colors">Services</a>
-            <a href="#case-studies" class="hover:text-brand-rose transition-colors">Case Studies</a>
-            <a href="#contact"      class="hover:text-brand-rose transition-colors">Contact</a>
+            <a href="#about"              class="hover:text-brand-rose transition-colors">About</a>
+            <a href="#automation-systems" class="hover:text-brand-rose transition-colors">Automation Systems</a>
+            <a href="#how-it-works"       class="hover:text-brand-rose transition-colors">How It Works</a>
+            <a href="#faq"                class="hover:text-brand-rose transition-colors">FAQ</a>
+            <a href="#contact"            class="hover:text-brand-rose transition-colors">Contact</a>
         </div>
 
         <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">
@@ -730,7 +1033,7 @@
      JAVASCRIPT
 ════════════════════════════════════════════ -->
 <script>
-    /* ── Sticky nav shadow ── */
+    /* Sticky nav shadow */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         navbar.style.boxShadow = window.scrollY > 20
@@ -738,7 +1041,7 @@
             : 'none';
     });
 
-    /* ── Mobile menu ── */
+    /* Mobile menu */
     let menuOpen = false;
     function toggleMenu() {
         menuOpen = !menuOpen;
@@ -746,15 +1049,13 @@
         const b1 = document.getElementById('b1');
         const b2 = document.getElementById('b2');
         const b3 = document.getElementById('b3');
-
         menu.classList.toggle('hidden', !menuOpen);
-
         b1.style.transform = menuOpen ? 'rotate(45deg) translate(4.5px, 4.5px)' : '';
         b2.style.opacity   = menuOpen ? '0' : '1';
         b3.style.transform = menuOpen ? 'rotate(-45deg) translate(4.5px, -4.5px)' : '';
     }
 
-    /* ── Intersection observer (fade-in) ── */
+    /* Intersection observer (fade-in) */
     const io = new IntersectionObserver(entries => {
         entries.forEach(e => {
             if (e.isIntersecting) {
@@ -763,10 +1064,26 @@
             }
         });
     }, { threshold: 0.08 });
-
     document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-    /* ── Form submit ── */
+    /* FAQ accordion */
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon   = btn.querySelector('.faq-icon');
+        const isOpen = answer.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+
+        // Open clicked (unless it was already open)
+        if (!isOpen) {
+            answer.classList.add('open');
+            icon.classList.add('open');
+        }
+    }
+
+    /* Form submit */
     function handleSubmit(e) {
         e.preventDefault();
         document.getElementById('contact-form').classList.add('hidden');
