@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unified Automation for Multi-Specialty Group — Orkestrix Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:     '#F3EDE5',
+            dark:      '#1A1412',
+            rose:      '#C09B8D',
+            gold:      '#8B7A56',
+            midtext:   '#5C4E47',
+            creamdark: '#E6DDD4',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { background-color: #F3EDE5; color: #1A1412; font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8B7A56;
+    }
+    .timeline-line { position: relative; }
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background: #E6DDD4;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-cream border-b border-creamdark" style="border-color:#E6DDD4;">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <svg width="44" height="44" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="4"/>
+          <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+          <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+          <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+        </svg>
+        <span class="font-serif text-lg font-semibold text-dark tracking-wide">Orkestrix</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="font-sans text-sm text-midtext hover:text-dark transition-colors flex items-center gap-1">
+          <span>&#8592;</span> Back to Home
+        </a>
+        <a href="index.html#contact" class="font-sans text-xs font-semibold tracking-widest uppercase bg-dark text-cream px-5 py-2.5 hover:bg-midtext transition-colors">
+          Book Free Audit
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="background:#1A1412;" class="px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <p class="section-label mb-5" style="color:#C09B8D;">Case Study 03</p>
+      <h1 class="font-serif text-4xl md:text-6xl font-semibold text-cream leading-tight mb-6">
+        Unified Automation for<br />Multi-Specialty Group
+      </h1>
+      <p class="font-sans text-base md:text-lg leading-relaxed max-w-2xl mb-4" style="color:#C09B8D;">
+        Turning a fragmented 3-location group into a coordinated, revenue-optimized practice.
+      </p>
+      <p class="font-sans text-sm md:text-base leading-relaxed max-w-2xl" style="color:#9A8880;">
+        How a unified AI communication hub and automated billing audit recovered $52k per quarter and freed 48 staff hours per week across five specialties.
+      </p>
+    </div>
+  </header>
+
+  <!-- STAT BAR -->
+  <section class="bg-cream border-b border-creamdark">
+    <div class="max-w-4xl mx-auto grid grid-cols-3 divide-x divide-creamdark">
+      <div class="px-8 py-10 text-center">
+        <p class="font-serif text-5xl font-semibold text-dark mb-2">6%</p>
+        <p class="font-sans text-xs text-midtext tracking-wide">Claim denial rate (was 18%)</p>
+      </div>
+      <div class="px-8 py-10 text-center">
+        <p class="font-serif text-5xl font-semibold text-dark mb-2">$52k</p>
+        <p class="font-sans text-xs text-midtext tracking-wide">Revenue recovered per quarter</p>
+      </div>
+      <div class="px-8 py-10 text-center">
+        <p class="font-serif text-5xl font-semibold text-dark mb-2">48 hrs</p>
+        <p class="font-sans text-xs text-midtext tracking-wide">Staff time freed per week</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT SNAPSHOT -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <p class="section-label mb-8">Client Snapshot</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-creamdark">
+      <div class="border-b border-r border-creamdark px-6 py-5">
+        <p class="font-sans text-xs text-gold font-semibold uppercase tracking-widest mb-1">Practice Type</p>
+        <p class="font-sans text-sm text-dark">Multi-specialty outpatient group (internal medicine, behavioral health, OB-GYN, PT, podiatry)</p>
+      </div>
+      <div class="border-b border-creamdark px-6 py-5">
+        <p class="font-sans text-xs text-gold font-semibold uppercase tracking-widest mb-1">Size</p>
+        <p class="font-sans text-sm text-dark">5 specialties · 3 locations · 18 staff · ~600 appointments/week</p>
+      </div>
+      <div class="border-b border-r border-creamdark px-6 py-5">
+        <p class="font-sans text-xs text-gold font-semibold uppercase tracking-widest mb-1">EHR</p>
+        <p class="font-sans text-sm text-dark">eClinicalWorks</p>
+      </div>
+      <div class="border-b border-creamdark px-6 py-5">
+        <p class="font-sans text-xs text-gold font-semibold uppercase tracking-widest mb-1">Before</p>
+        <p class="font-sans text-sm text-dark">Each location using separate communication tools. Billing team manually reviewing denials. No unified patient comms.</p>
+      </div>
+      <div class="md:col-span-2 px-6 py-5">
+        <p class="font-sans text-xs text-gold font-semibold uppercase tracking-widest mb-1">Stack</p>
+        <p class="font-sans text-sm text-dark">n8n (self-hosted) · Twilio · SendGrid · eClinicalWorks API · OpenAI · Airtable · Slack</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / SOLUTION -->
+  <section class="max-w-4xl mx-auto px-6 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Problem -->
+      <div class="p-8" style="background:#F9F0EC;">
+        <p class="section-label mb-5" style="color:#C09B8D;">The Problem</p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#C09B8D;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">18% claim denial rate draining $52k+ per quarter</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#C09B8D;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">3 locations running 3 different scheduling tools with no coordination</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#C09B8D;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Staff spending 15+ hrs/week manually chasing denial follow-ups</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#C09B8D;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">No unified patient communication strategy across specialties</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#C09B8D;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Patient experience varied wildly depending on location and provider</p>
+          </li>
+        </ul>
+      </div>
+      <!-- Solution -->
+      <div class="p-8" style="background:#F5F0E8;">
+        <p class="section-label mb-5">The Solution</p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#8B7A56;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Single AI hub routing all patient communications across all 3 locations</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#8B7A56;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Automated claim scrubbing before submission catches 94% of deniable errors</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#8B7A56;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">AI chatbot on patient portal handles FAQs, intake, and appointment requests</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#8B7A56;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Real-time denial dashboard with auto-follow-up queue and Slack escalations</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#8B7A56;"></span>
+            <p class="font-sans text-sm text-dark leading-relaxed">Monthly denial trend report auto-generated in Airtable for billing review</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW SEQUENCE -->
+  <section class="max-w-4xl mx-auto px-6 pb-16">
+    <p class="section-label mb-10">Workflow Sequence</p>
+    <div class="timeline-line space-y-8 pl-2">
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">T</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#C09B8D;">Trigger · eClinicalWorks</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">New appointment scheduled in any location</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">eClinicalWorks fires a webhook for all three locations through a single unified trigger endpoint — no per-location setup needed.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">1</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#8B7A56;">Step 1 · Twilio + SendGrid</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">Branded welcome + intake link sent</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">Patient receives a unified, branded welcome message and intake form link — consistent across all specialties and locations.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">2</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#C09B8D;">Step 2 · OpenAI + Clearinghouse</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">Claim pre-scrubbed before submission</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">AI reviews claim data against payer rules before it hits the clearinghouse — catching 94% of deniable errors before submission.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">3</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#8B7A56;">Step 3 · Airtable + Clearinghouse</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">Denial triggers auto-follow-up</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">On denial, an auto-follow-up task is created in Airtable and payer is contacted via the clearinghouse — no manual intervention needed.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">4</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#C09B8D;">Step 4 · Slack</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">72h unresolved → billing lead escalation</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">Denials not resolved within 72 hours automatically escalate to the billing lead via Slack — nothing falls through the cracks.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-6">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-sans text-xs font-semibold text-cream z-10" style="background:#1A1412;">5</div>
+        <div class="flex-1 border border-creamdark bg-cream p-6 mt-0.5">
+          <p class="font-sans text-xs font-semibold tracking-widest uppercase mb-2" style="color:#8B7A56;">Step 5 · Airtable Report</p>
+          <p class="font-serif text-lg font-medium text-dark mb-2">Monthly denial trend report auto-generated</p>
+          <p class="font-sans text-sm text-midtext leading-relaxed">A formatted denial trend report is automatically built in Airtable each month — giving the billing team data to prevent future denials.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESULTS / OUTCOME CARDS -->
+  <section style="background:#1A1412;" class="px-6 py-16">
+    <div class="max-w-4xl mx-auto">
+      <p class="section-label mb-10" style="color:#8B7A56;">Results</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">18% → 6%</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">Claim Denial Rate</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">Denial rate cut by two-thirds in the first quarter through pre-submission AI scrubbing.</p>
+        </div>
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">$52k</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">Revenue Recovered / Quarter</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">Previously lost to unchallenged denials and unresolved claims — now systematically recovered.</p>
+        </div>
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">48 hrs</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">Staff Hours Freed / Week</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">Across 18 staff members at 3 locations — manual billing and comms work replaced by automation.</p>
+        </div>
+      </div>
+
+      <!-- Secondary outcome cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">Unified</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">Patient Comms Across All Locations</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">One consistent branded patient experience across 3 locations and 5 specialties — from intake to follow-up.</p>
+        </div>
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">94%</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">Deniable Claims Caught Pre-Submission</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">AI scrubbing catches errors before they reach payers — far cheaper than chasing denials after the fact.</p>
+        </div>
+        <div class="border border-midtext p-8">
+          <p class="font-serif text-4xl font-semibold mb-3" style="color:#C09B8D;">340%</p>
+          <p class="font-sans text-sm text-cream font-semibold mb-2">ROI in Year 1</p>
+          <p class="font-sans text-xs leading-relaxed" style="color:#9A8880;">Total first-year return on the engagement, factoring recovered revenue and staff time savings combined.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE NOTE -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <p class="section-label mb-6">Compliance & Privacy</p>
+    <div class="p-8" style="border:1px solid #8B7A56; background:#F5F0E8;">
+      <p class="font-sans text-sm text-dark leading-relaxed">
+        All patient data flows through HIPAA-compliant channels with field-level encryption. Claim data is processed via certified clearinghouse integrations. No PHI touches non-HIPAA-eligible third-party services. Full audit trail maintained in eClinicalWorks and n8n execution logs.
+      </p>
+    </div>
+
+    <!-- COMPLIANCE PILLS -->
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">HIPAA-compliant data routing</span>
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">Certified clearinghouse integration</span>
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">Field-level PHI encryption</span>
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">eClinicalWorks API compliance</span>
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">Automated audit trail</span>
+      <span class="font-sans text-xs font-medium text-dark px-3 py-1.5" style="background:#E6DDD4; border:1px solid #E6DDD4;">Self-hosted n8n instance</span>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="max-w-4xl mx-auto px-6 pb-16">
+    <div class="pl-6" style="border-left:2px solid #C09B8D;">
+      <p class="font-serif text-2xl font-medium text-dark leading-relaxed italic mb-4">
+        "Our claim denial rate dropped from 18% to under 6% in three months. That alone paid for everything ten times over. I only wish I'd done this sooner."
+      </p>
+      <p class="font-sans text-sm text-midtext">— Clinic Director, Multi-specialty Group</p>
+    </div>
+  </section>
+
+  <!-- CTA BAR -->
+  <section style="background:#1A1412;" class="px-6 py-16">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="font-serif text-3xl font-semibold text-cream mb-2">Stop leaving revenue on the table.</p>
+        <p class="font-sans text-sm" style="color:#9A8880;">We'll audit your billing workflow and show you exactly what a unified system could recover for your group.</p>
+      </div>
+      <a href="index.html#contact" class="flex-shrink-0 font-sans text-xs font-semibold tracking-widest uppercase px-8 py-4 hover:opacity-90 transition-opacity" style="background:#C09B8D; color:#1A1412;">
+        Book Your Free Audit
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-cream border-t border-creamdark px-6 py-8">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <p class="font-sans text-xs text-midtext">© 2026 Orkestrix Solutions</p>
+      <a href="index.html" class="font-sans text-xs text-midtext hover:text-dark transition-colors">&#8592; Back to Home</a>
+    </div>
+  </footer>
+
+</body>
+</html>

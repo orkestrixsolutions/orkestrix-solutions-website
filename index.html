@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orkestrix Solutions | AI Automation for Healthcare Clinics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream:       '#F3EDE5',
+                        'cream-dark':'#E6DDD4',
+                        'brand-dark':'#1A1412',
+                        'brand-rose':'#C09B8D',
+                        'brand-rose-light':'#DEC9C0',
+                        'brand-gold':'#8B7A56',
+                        'brand-mid': '#5C4E47',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --cream: #F3EDE5;
+            --dark:  #1A1412;
+            --rose:  #C09B8D;
+            --gold:  #8B7A56;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Fade-in on scroll ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Section label ── */
+        .section-label {
+            display: inline-block;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        /* ── Nav link underline ── */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--rose);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ── Service card hover ── */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(26,20,18,0.10);
+        }
+
+        /* ── Hero geometric ambient ── */
+        .hero-ambient {
+            background:
+                radial-gradient(ellipse 60% 60% at 15% 55%, rgba(192,155,141,0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 45% 45% at 85% 20%, rgba(139,122,86,0.10) 0%, transparent 55%);
+        }
+
+        /* ── Metric gradient text ── */
+        .metric-grad {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Form inputs ── */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(92,78,71,0.18);
+            border: 1px solid rgba(192,155,141,0.22);
+            color: #F3EDE5;
+            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.25s ease;
+            outline: none;
+        }
+        .form-input::placeholder { color: rgba(222,201,192,0.35); }
+        .form-input:focus { border-color: var(--rose); }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+
+        /* ── Stagger delay helpers ── */
+        .delay-1 { transition-delay: 0.08s; }
+        .delay-2 { transition-delay: 0.16s; }
+        .delay-3 { transition-delay: 0.24s; }
+        .delay-4 { transition-delay: 0.32s; }
+        .delay-5 { transition-delay: 0.40s; }
+        .delay-6 { transition-delay: 0.48s; }
+
+        /* ── Hamburger bars ── */
+        .bar { display:block; width:22px; height:1.5px; background:var(--dark); transition:all 0.3s ease; }
+    </style>
+</head>
+
+<body class="font-sans">
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-cream/96 backdrop-blur-sm border-b border-cream-dark transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+            <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[1.05rem] font-semibold tracking-[0.22em] text-brand-dark group-hover:text-brand-rose transition-colors">ORKESTRIX</div>
+                <div class="text-[0.6rem] tracking-[0.28em] text-brand-gold font-medium" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#about"        class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">About</a>
+            <a href="#services"     class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Services</a>
+            <a href="#case-studies" class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Case Studies</a>
+            <a href="#testimonials" class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Testimonials</a>
+            <a href="#contact"      class="nav-link text-[0.8rem] font-medium text-brand-dark hover:text-brand-rose transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA -->
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-dark text-cream text-[0.78rem] font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300">
+            Book Free Audit
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+
+        <!-- Hamburger -->
+        <button id="menu-btn" class="md:hidden flex flex-col gap-[5px] p-2" onclick="toggleMenu()">
+            <span class="bar" id="b1"></span>
+            <span class="bar" id="b2"></span>
+            <span class="bar" id="b3"></span>
+        </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-cream-dark bg-cream px-6 py-5 flex flex-col gap-4">
+        <a href="#about"        class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">About</a>
+        <a href="#services"     class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Services</a>
+        <a href="#case-studies" class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Case Studies</a>
+        <a href="#testimonials" class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Testimonials</a>
+        <a href="#contact"      class="text-sm text-brand-dark font-medium" onclick="toggleMenu()">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex justify-center px-6 py-3 bg-brand-dark text-cream text-sm font-medium" onclick="toggleMenu()">Book Free Audit</a>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="hero" class="hero-ambient min-h-screen flex items-center pt-[72px]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full py-20 lg:py-28">
+        <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+            <!-- Copy -->
+            <div class="fade-in">
+                <div class="section-label mb-5">AI Automation · Healthcare Clinics</div>
+                <h1 class="font-serif font-light text-brand-dark leading-[1.08] mb-6"
+                    style="font-size: clamp(2.8rem, 6vw, 4.5rem);">
+                    Your Clinic<br/>
+                    <em class="italic">Runs Itself.</em><br/>
+                    <span class="text-brand-rose">You Heal People.</span>
+                </h1>
+                <p class="text-brand-mid font-light leading-relaxed mb-10 max-w-lg" style="font-size:1.05rem;">
+                    I help healthcare clinics eliminate administrative chaos with intelligent, HIPAA-compliant automation — cutting no-shows, accelerating billing, and giving your staff their time back.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact"
+                       class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark text-cream text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+                        Get Your Free Automation Audit
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#about"
+                       class="inline-flex items-center justify-center px-8 py-4 border border-brand-dark text-brand-dark text-sm font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300">
+                        My Story
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="mt-14 flex flex-wrap gap-0 divide-x divide-brand-rose-light">
+                    <div class="pr-10">
+                        <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">40+</div>
+                        <div class="section-label mt-1.5" style="color:var(--gold)">Hours Saved / Week</div>
+                    </div>
+                    <div class="px-10">
+                        <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">60%</div>
+                        <div class="section-label mt-1.5" style="color:var(--gold)">No-Show Reduction</div>
+                    </div>
+                    <div class="pl-10">
+                        <div class="font-serif text-[2.4rem] font-light text-brand-dark leading-none">HIPAA</div>
+                        <div class="section-label mt-1.5" style="color:var(--gold)">Compliant by Design</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard card -->
+            <div class="fade-in delay-2 hidden lg:flex justify-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 w-72 h-72 rounded-full border border-brand-rose/20 pointer-events-none"></div>
+                    <div class="absolute -bottom-10 -left-10 w-52 h-52 rounded-full border border-brand-gold/15 pointer-events-none"></div>
+
+                    <div class="relative z-10 bg-white/75 backdrop-blur-sm border border-cream-dark shadow-2xl p-9" style="width:370px;">
+                        <div class="flex items-center gap-3 mb-7">
+                            <svg width="52" height="52" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="3.5"/>
+                                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                                <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+                                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+                            </svg>
+                            <div>
+                                <div class="font-serif text-brand-dark text-lg font-medium">Automation Live</div>
+                                <div class="text-xs text-brand-gold tracking-wide">Clinic dashboard · Today</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2.5 mb-6">
+                            <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
+                                <span class="text-sm text-brand-mid flex-1">Patient intake received</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
+                            </div>
+                            <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
+                                <span class="text-sm text-brand-mid flex-1">Appointment auto-scheduled</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
+                            </div>
+                            <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-rose flex-shrink-0"></span>
+                                <span class="text-sm text-brand-mid flex-1">SMS reminder sent</span>
+                                <span class="text-xs text-brand-gold font-medium">✓ Done</span>
+                            </div>
+                            <div class="flex items-center gap-3 px-4 py-3 bg-cream rounded-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 animate-pulse"></span>
+                                <span class="text-sm text-brand-mid flex-1">Notes &amp; billing generated</span>
+                                <span class="text-[0.65rem] px-2 py-0.5 bg-brand-dark text-cream rounded-full tracking-wide">LIVE</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-dark px-5 py-4 flex items-center justify-between">
+                            <span class="text-brand-rose-light/70 text-sm">Staff hours saved today</span>
+                            <span class="font-serif text-brand-rose text-2xl font-light">2.5 hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section id="about" class="py-24 lg:py-36 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Photo -->
+            <div class="fade-in order-2 lg:order-1">
+                <div class="relative max-w-md">
+                    <!-- Photo placeholder — replace src with your actual image -->
+                    <div class="aspect-[4/5] bg-brand-mid/25 border border-brand-rose/15 flex flex-col items-center justify-center gap-3">
+                        <svg class="w-16 h-16 opacity-30 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                        <p class="text-brand-rose/35 text-xs tracking-[0.2em] uppercase">[ Your Photo Here ]</p>
+                    </div>
+                    <!-- Decorative frame -->
+                    <div class="absolute -bottom-5 -right-5 w-40 h-40 border border-brand-rose/15 pointer-events-none"></div>
+                    <div class="absolute -top-5 -left-5 pointer-events-none opacity-25">
+                        <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="46" stroke="#C09B8D" stroke-width="4"/>
+                            <circle cx="50" cy="50" r="34" stroke="#8B7A56" stroke-width="2"/>
+                            <polygon points="50,16 20.5,67 79.5,67" stroke="#C09B8D" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story -->
+            <div class="fade-in order-1 lg:order-2">
+                <div class="section-label mb-5" style="color:var(--gold)">About Me</div>
+                <h2 class="font-serif font-light text-cream leading-tight mb-8"
+                    style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                    From Patient Care<br/>to <em class="italic text-brand-rose">Clinic Transformation</em>
+                </h2>
+
+                <div class="space-y-5 font-light leading-relaxed" style="color:rgba(222,201,192,0.75); font-size:0.97rem;">
+                    <p>
+                        I spent years as a Patient Care Coordinator, the person fielding calls at 8 a.m., chasing insurance approvals, rescheduling no-shows, and watching talented clinicians drown in paperwork instead of caring for patients.
+                    </p>
+                    <p>
+                        I knew the problem intimately: <span class="text-cream">healthcare clinics are extraordinary at medicine but buried in administration.</span> So I made a deliberate pivot — deeply investing in AI and automation, determined to solve the exact pain points I'd lived firsthand.
+                    </p>
+                    <p>
+                        Today I bridge two worlds most consultants can't. I understand <span class="text-cream">clinical workflows, patient psychology, and compliance requirements</span>, and I know exactly how to automate them without disrupting care quality or confusing your team.
+                    </p>
+                    <p>This isn't about replacing people. It's about freeing them to do what they do best: <span class="text-brand-rose">heal.</span></p>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-brand-rose/15 grid grid-cols-2 gap-6">
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Name</div>
+                        <div class="font-serif text-cream text-lg font-light">Maricar Culala</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Specialization</div>
+                        <div class="text-cream text-sm font-light">AI Automation for Healthcare</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Background</div>
+                        <div class="text-cream text-sm font-light">Patient Care Coordination</div>
+                    </div>
+                    <div>
+                        <div class="section-label mb-1" style="color:var(--gold)">Compliance Focus</div>
+                        <div class="text-cream text-sm font-light">HIPAA-Compliant Solutions</div>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <a href="#contact"
+                       class="inline-flex items-center gap-2 px-8 py-4 border border-brand-rose text-brand-rose text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+                        Work With Me
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════ -->
+<section id="services" class="py-24 lg:py-36 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-4">What I Do</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight mb-4"
+                style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                Intelligent Automation<br/><em class="italic text-brand-rose">Built for Healthcare</em>
+            </h2>
+            <p class="text-brand-mid font-light max-w-xl mx-auto leading-relaxed">
+                Every solution is architectured with HIPAA compliance at its core and your real clinical workflow in mind. No generic tech. No disruption. Just measurable results.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- 1 -->
+            <div class="service-card fade-in delay-1 bg-white p-8 border border-cream-dark hover:border-brand-rose group cursor-default">
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/25 group-hover:border-brand-rose group-hover:bg-brand-rose/6 transition-all">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">AI Patient Intake &amp; Scheduling</h3>
+                <p class="text-brand-mid font-light text-sm leading-relaxed">
+                    Intelligent intake forms that auto-populate records, match patients with the right providers, and fill your calendar 24/7 — without a single phone call.
+                </p>
+            </div>
+
+            <!-- 2 -->
+            <div class="service-card fade-in delay-2 bg-white p-8 border border-cream-dark hover:border-brand-rose group cursor-default">
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/25 group-hover:border-brand-rose group-hover:bg-brand-rose/6 transition-all">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Automated Follow-ups &amp; No-Show Reduction</h3>
+                <p class="text-brand-mid font-light text-sm leading-relaxed">
+                    Multi-channel reminder sequences via SMS, email, and voice — perfectly timed to reduce no-shows by up to 60% and automatically re-fill cancelled slots.
+                </p>
+            </div>
+
+            <!-- 3 -->
+            <div class="service-card fade-in delay-3 bg-white p-8 border border-cream-dark hover:border-brand-rose group cursor-default">
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/25 group-hover:border-brand-rose group-hover:bg-brand-rose/6 transition-all">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Medical Documentation &amp; Billing Automation</h3>
+                <p class="text-brand-mid font-light text-sm leading-relaxed">
+                    AI-assisted clinical note generation, automated coding suggestions, and billing workflow automation that slashes claim processing time and denial rates.
+                </p>
+            </div>
+
+            <!-- 4 -->
+            <div class="service-card fade-in delay-4 bg-white p-8 border border-cream-dark hover:border-brand-rose group cursor-default">
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/25 group-hover:border-brand-rose group-hover:bg-brand-rose/6 transition-all">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Custom AI Chatbots for Patients</h3>
+                <p class="text-brand-mid font-light text-sm leading-relaxed">
+                    HIPAA-compliant AI assistants for your website and patient portal — answering FAQs, capturing new leads, and guiding patients through intake around the clock.
+                </p>
+            </div>
+
+            <!-- 5 -->
+            <div class="service-card fade-in delay-5 bg-white p-8 border border-cream-dark hover:border-brand-rose group cursor-default">
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/25 group-hover:border-brand-rose group-hover:bg-brand-rose/6 transition-all">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-brand-dark mb-3">Workflow Optimization &amp; Staff Efficiency</h3>
+                <p class="text-brand-mid font-light text-sm leading-relaxed">
+                    End-to-end mapping of your current processes, identifying automation opportunities that free your team from repetitive tasks while maintaining quality and compliance.
+                </p>
+            </div>
+
+            <!-- 6 – HIPAA card (dark) -->
+            <div class="service-card fade-in delay-6 bg-brand-dark p-8 border border-brand-dark cursor-default relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-28 h-28 border-l border-b border-brand-rose/10 pointer-events-none"></div>
+                <div class="w-11 h-11 mb-6 flex items-center justify-center border border-brand-rose/30">
+                    <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div class="section-label mb-2" style="color:var(--gold)">All Solutions Are</div>
+                <h3 class="font-serif text-[1.15rem] font-medium text-cream mb-3">HIPAA-Compliant by Design</h3>
+                <p class="font-light text-sm leading-relaxed" style="color:rgba(222,201,192,0.65);">
+                    Every automation is architectured with patient privacy at its core — encrypted data handling, full audit trails, and BAA agreements for every applicable tool.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CASE STUDIES
+════════════════════════════════════════════ -->
+<section id="case-studies" class="py-24 lg:py-36 bg-cream-dark">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-4">Real Results</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight"
+                style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                Clinics That <em class="italic text-brand-rose">Transformed</em>
+            </h2>
+        </div>
+
+        <!-- ── ALL THREE CASE STUDY CARDS ── -->
+        <div class="grid lg:grid-cols-3 gap-6">
+
+            <!-- Card 01 -->
+            <div class="fade-in delay-1 bg-cream p-8 border border-brand-rose/10 flex flex-col">
+                <div class="section-label mb-1">Case Study · 01</div>
+                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">No-Show Recovery Automation</h3>
+                <p class="text-brand-gold text-xs tracking-wide mb-7">Multi-specialty clinic · 4 providers · 2 locations</p>
+                <div class="space-y-5 mb-8 flex-1">
+                    <div>
+                        <div class="section-label mb-1.5">The Challenge</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">18–22% monthly no-show rate with no structured recovery. Front desk spending 10 hrs/week on manual callbacks with zero compliance documentation.</p>
+                    </div>
+                    <div class="h-px bg-brand-rose/15"></div>
+                    <div>
+                        <div class="section-label mb-1.5">The Solution</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">HIPAA-compliant 4-touch automated outreach (SMS + email) with AI sentiment scanning and EHR-triggered no-show detection.</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark p-6 mb-5">
+                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
+                    <div class="grid grid-cols-2 gap-y-5">
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">41%</div><div class="text-cream/50 text-xs mt-0.5">No-Show Recovery</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">$6,200</div><div class="text-cream/50 text-xs mt-0.5">Revenue Recovered / Mo</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">8 hrs</div><div class="text-cream/50 text-xs mt-0.5">Staff Hours Freed / Wk</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">0 hrs</div><div class="text-cream/50 text-xs mt-0.5">Extra Staff Required</div></div>
+                    </div>
+                </div>
+                <a href="case-study-01.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
+                    Read Full Case Study
+                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Card 02 -->
+            <div class="fade-in delay-2 bg-cream p-8 border border-brand-rose/10 flex flex-col">
+                <div class="section-label mb-1">Case Study · 02</div>
+                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">Physical Therapy Clinic</h3>
+                <p class="text-brand-gold text-xs tracking-wide mb-7">Solo PT · 2 support staff</p>
+                <div class="space-y-5 mb-8 flex-1">
+                    <div>
+                        <div class="section-label mb-1.5">The Challenge</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">Therapist spending 2+ hours on after-hours documentation. Insurance verification taking 45 minutes per new patient, delaying care starts.</p>
+                    </div>
+                    <div class="h-px bg-brand-rose/15"></div>
+                    <div>
+                        <div class="section-label mb-1.5">The Solution</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">AI-assisted SOAP note generation from voice dictation + automated insurance verification triggered on intake submission.</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark p-6 mb-5">
+                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
+                    <div class="grid grid-cols-2 gap-y-5">
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">80%</div><div class="text-cream/50 text-xs mt-0.5">Documentation Time Cut</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">8 min</div><div class="text-cream/50 text-xs mt-0.5">Insurance Check (was 45)</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">+3</div><div class="text-cream/50 text-xs mt-0.5">Patients / Day Capacity</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">$38k</div><div class="text-cream/50 text-xs mt-0.5">Annual Revenue Added</div></div>
+                    </div>
+                </div>
+                <a href="case-study-02.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
+                    Read Full Case Study
+                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Card 03 -->
+            <div class="fade-in delay-3 bg-cream p-8 border border-brand-rose/10 flex flex-col">
+                <div class="section-label mb-1">Case Study · 03</div>
+                <h3 class="font-serif text-2xl font-light text-brand-dark mb-1">Multi-Specialty Group</h3>
+                <p class="text-brand-gold text-xs tracking-wide mb-7">5 specialties · 3 locations · 18 staff</p>
+                <div class="space-y-5 mb-8 flex-1">
+                    <div>
+                        <div class="section-label mb-1.5">The Challenge</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">Disjointed patient communication across locations, an 18% claim denial rate, and staff overwhelmed by disconnected manual processes.</p>
+                    </div>
+                    <div class="h-px bg-brand-rose/15"></div>
+                    <div>
+                        <div class="section-label mb-1.5">The Solution</div>
+                        <p class="text-brand-mid text-sm font-light leading-relaxed">Unified AI communication hub + automated billing audit workflow + custom AI patient portal chatbot across all three locations.</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark p-6 mb-5">
+                    <div class="section-label mb-4" style="color:var(--gold)">Results · 90 Days</div>
+                    <div class="grid grid-cols-2 gap-y-5">
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">6%</div><div class="text-cream/50 text-xs mt-0.5">Denial Rate (was 18%)</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">$52k</div><div class="text-cream/50 text-xs mt-0.5">Revenue Recovered / Qtr</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">48h</div><div class="text-cream/50 text-xs mt-0.5">Weekly Staff Hours Freed</div></div>
+                        <div><div class="font-serif text-3xl font-light text-brand-rose">340%</div><div class="text-cream/50 text-xs mt-0.5">ROI in First Year</div></div>
+                    </div>
+                </div>
+                <a href="case-study-03.html" class="inline-flex items-center justify-between px-5 py-3 border border-brand-dark text-brand-dark text-xs font-medium tracking-wide hover:bg-brand-dark hover:text-cream transition-all duration-300 group">
+                    Read Full Case Study
+                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+
+        </div><!-- end case study grid -->
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section id="testimonials" class="py-24 lg:py-36 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-4">What Clients Say</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight"
+                style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                Trusted by <em class="italic text-brand-rose">Healthcare Leaders</em>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- T1 -->
+            <div class="fade-in delay-1 bg-white p-9 border border-cream-dark flex flex-col">
+                <div class="text-brand-gold text-base tracking-wide mb-6">★★★★★</div>
+                <blockquote class="font-serif text-[1.1rem] font-light italic text-brand-dark leading-relaxed flex-1 mb-8">
+                    "We went from losing thousands monthly to no-shows to having a waitlist. The automation doesn't just save time — it transformed how our entire practice operates."
+                </blockquote>
+                <div class="flex items-center gap-4 pt-6 border-t border-cream-dark">
+                    <div class="w-11 h-11 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0">
+                        <span class="font-serif text-brand-rose font-medium text-sm">DR</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm">Dr. Rachel M.</div>
+                        <div class="text-brand-gold text-xs tracking-wide">Family Medicine · Atlanta, GA</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T2 – dark card -->
+            <div class="fade-in delay-2 bg-brand-dark p-9 border border-brand-dark flex flex-col">
+                <div class="text-brand-gold text-base tracking-wide mb-6">★★★★★</div>
+                <blockquote class="font-serif text-[1.1rem] font-light italic text-cream leading-relaxed flex-1 mb-8">
+                    "What sets her apart is that she actually understands what happens inside a clinic. She didn't just hand me tech — she fixed the real workflow problems I'd lived with for years."
+                </blockquote>
+                <div class="flex items-center gap-4 pt-6 border-t border-brand-rose/20">
+                    <div class="w-11 h-11 rounded-full bg-brand-mid/30 flex items-center justify-center flex-shrink-0">
+                        <span class="font-serif text-brand-rose font-medium text-sm">JK</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-cream text-sm">James K., Practice Manager</div>
+                        <div class="text-brand-gold text-xs tracking-wide">Orthopedic Clinic · Dallas, TX</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T3 -->
+            <div class="fade-in delay-3 bg-white p-9 border border-cream-dark flex flex-col">
+                <div class="text-brand-gold text-base tracking-wide mb-6">★★★★★</div>
+                <blockquote class="font-serif text-[1.1rem] font-light italic text-brand-dark leading-relaxed flex-1 mb-8">
+                    "Our claim denial rate dropped from 18% to under 6% in three months. That alone paid for everything ten times over. I only wish I'd done this sooner."
+                </blockquote>
+                <div class="flex items-center gap-4 pt-6 border-t border-cream-dark">
+                    <div class="w-11 h-11 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0">
+                        <span class="font-serif text-brand-rose font-medium text-sm">SP</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm">Sandra P., Clinic Director</div>
+                        <div class="text-brand-gold text-xs tracking-wide">Multi-Specialty Group · Phoenix, AZ</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════ -->
+<section id="contact" class="py-24 lg:py-36 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+            <!-- Info -->
+            <div class="fade-in">
+                <div class="section-label mb-5" style="color:var(--gold)">Get Started</div>
+                <h2 class="font-serif font-light text-cream leading-tight mb-6"
+                    style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+                    Book Your Free<br/><em class="italic text-brand-rose">30-Minute Automation Audit</em>
+                </h2>
+                <p class="font-light leading-relaxed mb-10" style="color:rgba(222,201,192,0.68); font-size:0.97rem;">
+                    In 30 minutes we'll map your clinic's biggest time drains, pinpoint your top 3 automation opportunities, and give you a clear picture of the ROI you can expect. No pitch. No pressure. Just clarity.
+                </p>
+
+                <div class="space-y-7">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 border border-brand-rose/25 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-4.5 h-4.5 text-brand-rose" style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="section-label mb-0.5" style="color:var(--gold)">Email</div>
+                            <a href="mailto:orkestrixsolutions@gmail.com" class="text-cream font-light hover:text-brand-rose transition-colors text-sm">orkestrixsolutions@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 border border-brand-rose/25 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="text-brand-rose" style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="section-label mb-0.5" style="color:var(--gold)">Facebook</div>
+                            <a href="https://facebook.com/orkestrixsolutions" target="_blank" rel="noopener" class="text-cream font-light hover:text-brand-rose transition-colors text-sm">facebook.com/orkestrixsolutions</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 border border-brand-rose/25 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="text-brand-rose" style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="section-label mb-0.5" style="color:var(--gold)">Compliance</div>
+                            <span class="text-cream font-light text-sm">All solutions are HIPAA-compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="fade-in delay-2">
+                <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block section-label mb-2" style="color:var(--gold)">Full Name</label>
+                            <input class="form-input" type="text" placeholder="Dr. Jane Smith" required/>
+                        </div>
+                        <div>
+                            <label class="block section-label mb-2" style="color:var(--gold)">Email</label>
+                            <input class="form-input" type="email" placeholder="jane@yourclinic.com" required/>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block section-label mb-2" style="color:var(--gold)">Clinic Name</label>
+                            <input class="form-input" type="text" placeholder="Sunshine Family Medicine" required/>
+                        </div>
+                        <div>
+                            <label class="block section-label mb-2" style="color:var(--gold)">Phone</label>
+                            <input class="form-input" type="tel" placeholder="+1 (555) 000-0000"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block section-label mb-2" style="color:var(--gold)">Your Biggest Operational Challenge</label>
+                        <textarea class="form-input resize-none" rows="5"
+                            placeholder="Tell me about your current pain points — scheduling chaos, no-shows, billing headaches, after-hours documentation..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 bg-brand-rose text-brand-dark text-sm font-medium tracking-widest uppercase hover:bg-cream transition-all duration-300 flex items-center justify-center gap-2 group">
+                        Book My Free Automation Audit
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                    <p class="text-center text-xs" style="color:rgba(222,201,192,0.3);">No spam, ever. Your information is held in strict confidence.</p>
+                </form>
+
+                <!-- Success state -->
+                <div id="success-msg" class="hidden border border-brand-rose/30 p-10 text-center">
+                    <div class="font-serif text-4xl text-brand-rose mb-3">✓</div>
+                    <p class="font-serif text-cream text-xl font-light mb-2">Thank you.</p>
+                    <p class="font-light text-sm" style="color:rgba(222,201,192,0.65);">I'll reach out within 24 hours to schedule your free audit.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="bg-brand-dark border-t border-brand-rose/10 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <a href="#" class="flex items-center gap-3">
+            <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#C09B8D" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#8B7A56" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#C09B8D" stroke-width="2"/>
+                <circle cx="50" cy="50" r="2.8" fill="#8B7A56"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[0.85rem] font-semibold tracking-[0.22em] text-cream">ORKESTRIX</div>
+                <div class="text-[0.55rem] tracking-[0.28em] text-brand-gold" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+
+        <div class="flex gap-7 text-[0.72rem] tracking-wide" style="color:rgba(222,201,192,0.4);">
+            <a href="#about"        class="hover:text-brand-rose transition-colors">About</a>
+            <a href="#services"     class="hover:text-brand-rose transition-colors">Services</a>
+            <a href="#case-studies" class="hover:text-brand-rose transition-colors">Case Studies</a>
+            <a href="#testimonials" class="hover:text-brand-rose transition-colors">Testimonials</a>
+            <a href="#contact"      class="hover:text-brand-rose transition-colors">Contact</a>
+        </div>
+
+        <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">
+            © 2026 Orkestrix Solutions. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+    /* ── Sticky nav shadow ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.style.boxShadow = window.scrollY > 20
+            ? '0 1px 24px rgba(26,20,18,0.09)'
+            : 'none';
+    });
+
+    /* ── Mobile menu ── */
+    let menuOpen = false;
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        const menu = document.getElementById('mobile-menu');
+        const b1 = document.getElementById('b1');
+        const b2 = document.getElementById('b2');
+        const b3 = document.getElementById('b3');
+
+        menu.classList.toggle('hidden', !menuOpen);
+
+        b1.style.transform = menuOpen ? 'rotate(45deg) translate(4.5px, 4.5px)' : '';
+        b2.style.opacity   = menuOpen ? '0' : '1';
+        b3.style.transform = menuOpen ? 'rotate(-45deg) translate(4.5px, -4.5px)' : '';
+    }
+
+    /* ── Intersection observer (fade-in) ── */
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    /* ── Form submit ── */
+    function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById('contact-form').classList.add('hidden');
+        document.getElementById('success-msg').classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>
