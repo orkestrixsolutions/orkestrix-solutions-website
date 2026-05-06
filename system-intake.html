@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Intake &amp; Scheduling System | Orkestrix Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F3EDE5', 'cream-dark': '#E6DDD4',
+                        'brand-dark': '#1A1412', 'brand-rose': '#C09B8D',
+                        'brand-rose-light': '#DEC9C0', 'brand-gold': '#8B7A56',
+                        'brand-mid': '#5C4E47',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --cream:#F3EDE5; --dark:#1A1412; --rose:#C09B8D; --gold:#8B7A56; }
+        * { box-sizing: border-box; }
+        body { background-color: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
+        .section-label { display:inline-block; letter-spacing:0.22em; text-transform:uppercase; font-size:0.7rem; color:var(--gold); font-family:'Inter',sans-serif; font-weight:500; }
+        .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
+        .delay-1 { transition-delay:0.08s; } .delay-2 { transition-delay:0.16s; } .delay-3 { transition-delay:0.24s; }
+        ::-webkit-scrollbar { width:5px; } ::-webkit-scrollbar-track { background:var(--cream); } ::-webkit-scrollbar-thumb { background:var(--rose); border-radius:3px; }
+    </style>
+</head>
+<body class="font-sans">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-cream/96 backdrop-blur-sm border-b border-cream-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[68px]">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[0.95rem] font-semibold tracking-[0.22em] text-brand-dark group-hover:text-brand-rose transition-colors">ORKESTRIX</div>
+                <div class="text-[0.55rem] tracking-[0.28em] text-brand-gold font-medium" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+        <a href="index.html" class="flex items-center gap-2 text-brand-mid text-sm font-medium hover:text-brand-rose transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Back to Home
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="bg-brand-dark py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="section-label" style="color:var(--gold)">Sample System · 02</div>
+                <span class="text-brand-rose/40 text-xs">|</span>
+                <div class="section-label" style="color:var(--rose)">Intake &amp; Scheduling</div>
+            </div>
+            <h1 class="font-serif font-light text-cream leading-[1.1] mb-6" style="font-size:clamp(2.4rem,5vw,3.8rem);">
+                Patient Intake &amp;<br/><em class="italic text-brand-rose">Scheduling Automation</em>
+            </h1>
+            <p class="font-light leading-relaxed mb-8" style="color:rgba(222,201,192,0.72); font-size:1.05rem; max-width:560px;">
+                An intelligent intake and scheduling system that captures new patients, collects their information, books the right appointment, and populates your EHR — all without a single phone call or manual data entry.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">HIPAA Compliant</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">24 / 7 Booking</span>
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">EHR Auto-Population</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">Live in 3–4 Weeks</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METRICS BAR -->
+<div class="bg-brand-rose/10 border-y border-brand-rose/20 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">0</div>
+            <div class="section-label mt-1">Phone Calls for New Patients</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">24/7</div>
+            <div class="section-label mt-1">Calendar Availability</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">6 min</div>
+            <div class="section-label mt-1">Avg Intake Completion</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">100%</div>
+            <div class="section-label mt-1">EHR Auto-Populated</div>
+        </div>
+    </div>
+</div>
+
+<!-- PATIENT JOURNEY -->
+<section class="py-20 lg:py-28 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-3">Patient Experience</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight" style="font-size:clamp(1.9rem,3.5vw,2.9rem);">
+                From First Click to <em class="italic text-brand-rose">Confirmed Appointment</em>
+            </h2>
+            <p class="text-brand-mid font-light max-w-xl mx-auto mt-4 text-sm leading-relaxed">What your new patient experiences — and what happens automatically behind the scenes.</p>
+        </div>
+
+        <!-- Journey steps -->
+        <div class="grid md:grid-cols-2 gap-5 mb-16 fade-in delay-1">
+
+            <!-- Patient side -->
+            <div class="bg-brand-dark p-8">
+                <div class="section-label mb-6" style="color:var(--rose)">What the Patient Sees</div>
+                <div class="space-y-5">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-rose flex items-center justify-center text-cream font-serif text-sm font-light">1</div>
+                        <div>
+                            <div class="text-cream text-sm font-medium mb-0.5">Lands on your website or portal</div>
+                            <p class="text-xs font-light leading-relaxed" style="color:rgba(222,201,192,0.60);">Clicks "Book an Appointment" — available on any device, any time of day.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-rose flex items-center justify-center text-cream font-serif text-sm font-light">2</div>
+                        <div>
+                            <div class="text-cream text-sm font-medium mb-0.5">Completes smart intake form</div>
+                            <p class="text-xs font-light leading-relaxed" style="color:rgba(222,201,192,0.60);">Answers adaptive questions (only what's relevant to their reason for visit), uploads insurance card, signs consent forms.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-rose flex items-center justify-center text-cream font-serif text-sm font-light">3</div>
+                        <div>
+                            <div class="text-cream text-sm font-medium mb-0.5">Selects from available slots</div>
+                            <p class="text-xs font-light leading-relaxed" style="color:rgba(222,201,192,0.60);">Matched to the right provider and location based on their responses. Picks a time that works for them.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-gold flex items-center justify-center text-cream font-serif text-sm font-light">4</div>
+                        <div>
+                            <div class="text-cream text-sm font-medium mb-0.5">Receives instant confirmation</div>
+                            <p class="text-xs font-light leading-relaxed" style="color:rgba(222,201,192,0.60);">SMS + email confirmation with appointment details, directions, and what to bring. Done in under 6 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System side -->
+            <div class="bg-white border border-cream-dark p-8">
+                <div class="section-label mb-6">What Happens Automatically</div>
+                <div class="space-y-5">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-gold/15 border border-brand-gold/25 flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium mb-0.5">Patient record created in EHR</div>
+                            <p class="text-brand-mid text-xs font-light leading-relaxed">All intake data maps directly into your EHR fields — no manual re-entry, no transcription errors.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-gold/15 border border-brand-gold/25 flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium mb-0.5">Insurance verification triggered</div>
+                            <p class="text-brand-mid text-xs font-light leading-relaxed">Insurance details are verified automatically within minutes of submission — before the patient even walks in.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-gold/15 border border-brand-gold/25 flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium mb-0.5">Appointment added to provider schedule</div>
+                            <p class="text-brand-mid text-xs font-light leading-relaxed">Slot is blocked in the provider's calendar and the appointment type is set based on the patient's intake responses.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-7 h-7 flex-shrink-0 bg-brand-gold/15 border border-brand-gold/25 flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium mb-0.5">Reminder sequence activated</div>
+                            <p class="text-brand-mid text-xs font-light leading-relaxed">The no-show prevention sequence begins automatically — no separate setup needed for each new patient.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Smart form features -->
+        <div class="fade-in delay-2">
+            <h3 class="font-serif text-2xl font-light text-brand-dark mb-8 text-center">Intelligent Intake Form Features</h3>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="section-label mb-3">Adaptive Logic</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Questions change based on previous answers. A patient coming in for back pain sees different fields than one visiting for anxiety — reducing completion time and abandonment.</p>
+                </div>
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="section-label mb-3">Insurance Card Capture</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Patients photograph their insurance card on mobile — our system extracts the member ID, group number, and payer name automatically via OCR.</p>
+                </div>
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="section-label mb-3">Digital Consent &amp; HIPAA Notices</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Consent forms and HIPAA notices are signed digitally within the intake flow. All signed documents are stored in the patient record with timestamp and IP log.</p>
+                </div>
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="section-label mb-3">Provider Matching</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">The system recommends the most appropriate provider based on the patient's chief complaint, insurance, location preference, and provider availability.</p>
+                </div>
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="section-label mb-3">Multi-Language Support</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Intake forms available in English, Spanish, and additional languages based on your patient population — reducing barriers for non-English-speaking patients.</p>
+                </div>
+                <div class="bg-brand-dark border border-brand-dark p-6">
+                    <div class="section-label mb-3" style="color:var(--gold)">All Data Is</div>
+                    <div class="font-serif text-cream text-xl font-light mb-2">End-to-End Encrypted</div>
+                    <p class="text-sm font-light leading-relaxed" style="color:rgba(222,201,192,0.65);">Every form submission, document, and image is encrypted in transit (TLS 1.3) and at rest (AES-256). Full HIPAA compliance documented.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-16 bg-brand-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="grid md:grid-cols-3 gap-6 fade-in">
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Included in Setup</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Custom intake form design</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>EHR field mapping &amp; testing</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Insurance verification integration</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Provider matching logic setup</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Consent form digitization</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Website/portal embed</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Compatible With</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Epic, Athenahealth, Kareo</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Jane App, SimplePractice</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Availity, Change Healthcare (insurance)</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>WordPress, Squarespace, Wix</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Custom websites via embed</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Patient portals</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Timeline</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 1: Discovery &amp; design</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 2: Build &amp; EHR mapping</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 3: Testing with real patients</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 4: Full launch</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>30-day post-launch support</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Ongoing optimization retainer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-cream">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+        <div class="section-label mb-4">Ready to Automate Your Intake?</div>
+        <h2 class="font-serif font-light text-brand-dark leading-tight mb-6" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">
+            Book a Free 30-Minute Audit<br/><em class="italic text-brand-rose">and See This System in Action</em>
+        </h2>
+        <p class="text-brand-mid font-light text-sm leading-relaxed mb-8">We'll review your current intake workflow, identify the friction points costing you time and patients, and walk you through exactly how this system would work in your clinic.</p>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 px-10 py-4 bg-brand-dark text-cream text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+            Book My Free Audit
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-brand-dark border-t border-brand-rose/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html" class="text-sm font-light hover:text-brand-rose transition-colors" style="color:rgba(222,201,192,0.4);">← Back to Orkestrix Solutions</a>
+        <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">© 2026 Orkestrix Solutions. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible'); io.unobserve(x.target);} }), {threshold:0.08});
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

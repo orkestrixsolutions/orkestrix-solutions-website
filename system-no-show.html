@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Show Prevention System | Orkestrix Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F3EDE5', 'cream-dark': '#E6DDD4',
+                        'brand-dark': '#1A1412', 'brand-rose': '#C09B8D',
+                        'brand-rose-light': '#DEC9C0', 'brand-gold': '#8B7A56',
+                        'brand-mid': '#5C4E47',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --cream:#F3EDE5; --dark:#1A1412; --rose:#C09B8D; --gold:#8B7A56; }
+        * { box-sizing: border-box; }
+        body { background-color: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
+        .section-label { display:inline-block; letter-spacing:0.22em; text-transform:uppercase; font-size:0.7rem; color:var(--gold); font-family:'Inter',sans-serif; font-weight:500; }
+        .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
+        .delay-1 { transition-delay:0.08s; } .delay-2 { transition-delay:0.16s; } .delay-3 { transition-delay:0.24s; } .delay-4 { transition-delay:0.32s; }
+        ::-webkit-scrollbar { width:5px; } ::-webkit-scrollbar-track { background:var(--cream); } ::-webkit-scrollbar-thumb { background:var(--rose); border-radius:3px; }
+        .flow-arrow { color: var(--rose); font-size: 1.4rem; line-height: 1; }
+        .timeline-line { position:absolute; left:24px; top:52px; bottom:0; width:1px; background:linear-gradient(to bottom, var(--rose), transparent); }
+    </style>
+</head>
+<body class="font-sans">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-cream/96 backdrop-blur-sm border-b border-cream-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[68px]">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[0.95rem] font-semibold tracking-[0.22em] text-brand-dark group-hover:text-brand-rose transition-colors">ORKESTRIX</div>
+                <div class="text-[0.55rem] tracking-[0.28em] text-brand-gold font-medium" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+        <a href="index.html" class="flex items-center gap-2 text-brand-mid text-sm font-medium hover:text-brand-rose transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Back to Home
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="bg-brand-dark py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="section-label" style="color:var(--gold)">Sample System · 01</div>
+                <span class="text-brand-rose/40 text-xs">|</span>
+                <div class="section-label" style="color:var(--rose)">No-Show Prevention</div>
+            </div>
+            <h1 class="font-serif font-light text-cream leading-[1.1] mb-6" style="font-size:clamp(2.4rem,5vw,3.8rem);">
+                No-Show Prevention<br/>&amp; <em class="italic text-brand-rose">Recovery System</em>
+            </h1>
+            <p class="font-light leading-relaxed mb-8" style="color:rgba(222,201,192,0.72); font-size:1.05rem; max-width:560px;">
+                A fully automated, HIPAA-compliant reminder and recovery system that reduces no-show rates by 40–60% and automatically fills cancelled slots — without any manual effort from your front desk.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">HIPAA Compliant</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">EHR Integrated</span>
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">SMS + Email + Voice</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">Live in 2 Weeks</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METRICS BAR -->
+<div class="bg-brand-rose/10 border-y border-brand-rose/20 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">41%</div>
+            <div class="section-label mt-1">Avg No-Show Recovery</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">$6,200</div>
+            <div class="section-label mt-1">Revenue Recovered / Mo</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">8 hrs</div>
+            <div class="section-label mt-1">Staff Hours Freed / Wk</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">2 wks</div>
+            <div class="section-label mt-1">Average Time to Live</div>
+        </div>
+    </div>
+</div>
+
+<!-- SYSTEM OVERVIEW -->
+<section class="py-20 lg:py-28 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-3">System Architecture</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight" style="font-size:clamp(1.9rem,3.5vw,2.9rem);">
+                How the System <em class="italic text-brand-rose">Operates</em>
+            </h2>
+        </div>
+
+        <!-- Automated flow diagram -->
+        <div class="mb-20">
+            <div class="grid md:grid-cols-5 gap-0 items-center fade-in delay-1">
+
+                <!-- Step 1 -->
+                <div class="bg-white border border-cream-dark p-6 text-center">
+                    <div class="w-10 h-10 mx-auto mb-4 flex items-center justify-center bg-brand-rose/10 border border-brand-rose/25">
+                        <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">Trigger</div>
+                    <p class="text-brand-mid text-xs font-light leading-snug">Appointment booked in your EHR</p>
+                </div>
+
+                <div class="flow-arrow text-center hidden md:block">→</div>
+
+                <!-- Step 2 -->
+                <div class="bg-brand-dark border border-brand-dark p-6 text-center">
+                    <div class="w-10 h-10 mx-auto mb-4 flex items-center justify-center border border-brand-rose/30">
+                        <svg class="w-5 h-5 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    </div>
+                    <div class="section-label mb-2" style="color:var(--gold)">Reminder Sequence</div>
+                    <p class="text-xs font-light leading-snug" style="color:rgba(222,201,192,0.65);">4-touch automated outreach begins</p>
+                </div>
+
+                <div class="flow-arrow text-center hidden md:block" style="color:#C09B8D;">→</div>
+
+                <!-- Step 3 -->
+                <div class="bg-white border border-cream-dark p-6 text-center">
+                    <div class="w-10 h-10 mx-auto mb-4 flex items-center justify-center bg-brand-gold/10 border border-brand-gold/25">
+                        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">Outcome</div>
+                    <p class="text-brand-mid text-xs font-light leading-snug">Confirmed, rescheduled, or slot re-filled</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reminder timeline -->
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+            <div class="fade-in delay-1">
+                <h3 class="font-serif text-2xl font-light text-brand-dark mb-8">The 4-Touch Reminder Sequence</h3>
+                <div class="space-y-6">
+
+                    <!-- Touch 1 -->
+                    <div class="relative pl-14">
+                        <div class="timeline-line"></div>
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-brand-rose flex items-center justify-center">
+                            <span class="font-serif text-cream text-lg font-light">1</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h4 class="font-medium text-brand-dark text-sm">Booking Confirmation</h4>
+                                <span class="section-label text-[0.6rem]">Immediately</span>
+                            </div>
+                            <p class="text-brand-mid text-sm font-light leading-relaxed">Automated confirmation sent via email + SMS the moment an appointment is booked. Includes date, time, provider, and any pre-visit instructions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Touch 2 -->
+                    <div class="relative pl-14">
+                        <div class="timeline-line"></div>
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-brand-rose flex items-center justify-center">
+                            <span class="font-serif text-cream text-lg font-light">2</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h4 class="font-medium text-brand-dark text-sm">72-Hour Reminder</h4>
+                                <span class="section-label text-[0.6rem]">3 Days Before</span>
+                            </div>
+                            <p class="text-brand-mid text-sm font-light leading-relaxed">Friendly reminder with a one-tap confirm or reschedule link. AI sentiment scanning detects reply tone and flags uncertain responses for staff review.</p>
+                        </div>
+                    </div>
+
+                    <!-- Touch 3 -->
+                    <div class="relative pl-14">
+                        <div class="timeline-line"></div>
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-brand-rose flex items-center justify-center">
+                            <span class="font-serif text-cream text-lg font-light">3</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h4 class="font-medium text-brand-dark text-sm">Day-Before Reminder</h4>
+                                <span class="section-label text-[0.6rem]">24 Hours Before</span>
+                            </div>
+                            <p class="text-brand-mid text-sm font-light leading-relaxed">Final reminder with directions, parking info, and what to bring. Unconfirmed appointments are automatically flagged and the slot is placed on a standby waitlist.</p>
+                        </div>
+                    </div>
+
+                    <!-- Touch 4 -->
+                    <div class="relative pl-14">
+                        <div class="absolute left-0 top-0 w-12 h-12 bg-brand-gold flex items-center justify-center">
+                            <span class="font-serif text-cream text-lg font-light">4</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h4 class="font-medium text-brand-dark text-sm">No-Show Recovery</h4>
+                                <span class="section-label text-[0.6rem]">Post-Appointment</span>
+                            </div>
+                            <p class="text-brand-mid text-sm font-light leading-relaxed">If a patient misses their appointment, an automated recovery message sends within 2 hours offering easy rescheduling and the next 3 available slots.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature list -->
+            <div class="fade-in delay-2 space-y-4">
+                <h3 class="font-serif text-2xl font-light text-brand-dark mb-6">System Capabilities</h3>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">EHR-Triggered Automation</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">Sequences start automatically when appointments are booked — no manual setup required per patient.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">Intelligent Waitlist Management</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">Cancelled slots are instantly offered to patients on a dynamic waitlist, sorted by urgency and availability match.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">Multi-Channel Outreach</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">SMS, email, and optional automated voice calls — each patient's preferred channel is learned and prioritized over time.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">AI Sentiment Scanning</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">Patient replies are analyzed in real time. Confused, hesitant, or urgent responses are flagged for a staff member to follow up personally.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">No-Show Rate Dashboard</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">Weekly reports showing no-show rate trends, recovery rate, revenue recovered, and which message touchpoints are most effective.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-5 flex gap-4">
+                    <div class="w-8 h-8 flex-shrink-0 bg-brand-rose/10 flex items-center justify-center mt-0.5">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-medium text-brand-dark text-sm mb-1">Full HIPAA Audit Trail</div>
+                        <p class="text-brand-mid text-xs font-light leading-relaxed">Every outreach message, patient reply, and scheduling action is logged with timestamps for complete compliance documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-16 bg-brand-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="grid md:grid-cols-3 gap-6 fade-in">
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Included in Setup</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>EHR integration &amp; testing</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Message copy tailored to your clinic</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Sequence timing configuration</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Waitlist logic setup</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Staff training &amp; SOPs</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>BAA agreements for all tools</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Compatible With</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Epic, Athenahealth, Kareo</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Jane App, SimplePractice</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>DrChrono, AdvancedMD</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Google Workspace / Outlook</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Twilio, Mailgun (messaging)</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Custom EHR via API</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Timeline</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 1: Discovery &amp; integration</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 2: Build &amp; message setup</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 3: Testing &amp; training</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 4: Go live + monitoring</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>30-day post-launch support</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Ongoing optimization retainer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-cream">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+        <div class="section-label mb-4">Ready to Stop Losing Revenue to No-Shows?</div>
+        <h2 class="font-serif font-light text-brand-dark leading-tight mb-6" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">
+            Book a Free 30-Minute Audit<br/><em class="italic text-brand-rose">and See This System in Action</em>
+        </h2>
+        <p class="text-brand-mid font-light text-sm leading-relaxed mb-8">We'll review your current no-show rate, estimate your monthly revenue loss, and show you exactly how this system would work inside your clinic.</p>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 px-10 py-4 bg-brand-dark text-cream text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+            Book My Free Audit
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-brand-dark border-t border-brand-rose/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html" class="text-sm font-light hover:text-brand-rose transition-colors" style="color:rgba(222,201,192,0.4);">← Back to Orkestrix Solutions</a>
+        <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">© 2026 Orkestrix Solutions. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible'); io.unobserve(x.target);} }), {threshold:0.08});
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

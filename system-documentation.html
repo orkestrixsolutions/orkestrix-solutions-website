@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Documentation &amp; Billing System | Orkestrix Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F3EDE5', 'cream-dark': '#E6DDD4',
+                        'brand-dark': '#1A1412', 'brand-rose': '#C09B8D',
+                        'brand-rose-light': '#DEC9C0', 'brand-gold': '#8B7A56',
+                        'brand-mid': '#5C4E47',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --cream:#F3EDE5; --dark:#1A1412; --rose:#C09B8D; --gold:#8B7A56; }
+        * { box-sizing: border-box; }
+        body { background-color: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
+        .section-label { display:inline-block; letter-spacing:0.22em; text-transform:uppercase; font-size:0.7rem; color:var(--gold); font-family:'Inter',sans-serif; font-weight:500; }
+        .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
+        .delay-1 { transition-delay:0.08s; } .delay-2 { transition-delay:0.16s; } .delay-3 { transition-delay:0.24s; }
+        ::-webkit-scrollbar { width:5px; } ::-webkit-scrollbar-track { background:var(--cream); } ::-webkit-scrollbar-thumb { background:var(--rose); border-radius:3px; }
+        .before-after-bar { height: 4px; background: linear-gradient(90deg, var(--rose) 0%, var(--gold) 100%); margin-top: 8px; }
+    </style>
+</head>
+<body class="font-sans">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-cream/96 backdrop-blur-sm border-b border-cream-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[68px]">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="46" stroke="#1A1412" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#1A1412" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[0.95rem] font-semibold tracking-[0.22em] text-brand-dark group-hover:text-brand-rose transition-colors">ORKESTRIX</div>
+                <div class="text-[0.55rem] tracking-[0.28em] text-brand-gold font-medium" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+        <a href="index.html" class="flex items-center gap-2 text-brand-mid text-sm font-medium hover:text-brand-rose transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Back to Home
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="bg-brand-dark py-20 lg:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="section-label" style="color:var(--gold)">Sample System · 03</div>
+                <span class="text-brand-rose/40 text-xs">|</span>
+                <div class="section-label" style="color:var(--rose)">Documentation &amp; Billing</div>
+            </div>
+            <h1 class="font-serif font-light text-cream leading-[1.1] mb-6" style="font-size:clamp(2.4rem,5vw,3.8rem);">
+                AI Documentation &amp;<br/><em class="italic text-brand-rose">Billing Automation</em>
+            </h1>
+            <p class="font-light leading-relaxed mb-8" style="color:rgba(222,201,192,0.72); font-size:1.05rem; max-width:560px;">
+                An AI-powered system that turns provider voice dictation into structured clinical notes, generates billing codes, and routes claims — cutting documentation time by 80% and denial rates by more than half.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">HIPAA Compliant</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">Voice-to-Note AI</span>
+                <span class="px-4 py-1.5 border border-brand-rose/30 text-brand-rose text-xs tracking-wide">Auto Coding (ICD-10 / CPT)</span>
+                <span class="px-4 py-1.5 border border-brand-gold/30 text-brand-gold text-xs tracking-wide">Live in 4–5 Weeks</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METRICS BAR -->
+<div class="bg-brand-rose/10 border-y border-brand-rose/20 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">80%</div>
+            <div class="section-label mt-1">Documentation Time Cut</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">6%</div>
+            <div class="section-label mt-1">Denial Rate (from 18%)</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">+3</div>
+            <div class="section-label mt-1">Patients / Day Capacity</div>
+        </div>
+        <div>
+            <div class="font-serif text-4xl font-light text-brand-dark">$38k</div>
+            <div class="section-label mt-1">Added Annual Revenue</div>
+        </div>
+    </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<section class="py-20 lg:py-28 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+        <div class="text-center mb-16 fade-in">
+            <div class="section-label mb-3">The Problem We Solve</div>
+            <h2 class="font-serif font-light text-brand-dark leading-tight" style="font-size:clamp(1.9rem,3.5vw,2.9rem);">
+                Before &amp; After <em class="italic text-brand-rose">Automation</em>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-16 fade-in delay-1">
+            <!-- Before -->
+            <div class="bg-white border border-red-100 p-8">
+                <div class="section-label mb-6" style="color:#B07070;">Without Automation</div>
+                <div class="space-y-4">
+                    <div class="flex gap-3 items-start">
+                        <span class="text-red-300 text-lg mt-0.5">✗</span>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium">2+ hours of after-hours charting</div>
+                            <p class="text-brand-mid text-xs font-light mt-0.5">Providers document manually at the end of the day — often from memory, increasing error risk.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-red-300 text-lg mt-0.5">✗</span>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium">45-minute insurance verification per new patient</div>
+                            <p class="text-brand-mid text-xs font-light mt-0.5">Staff manually calling payers or checking portals — consuming hours that could go to patient care.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-red-300 text-lg mt-0.5">✗</span>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium">18% claim denial rate</div>
+                            <p class="text-brand-mid text-xs font-light mt-0.5">Incorrect codes, missing modifiers, and incomplete documentation trigger denials that require costly re-work.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-red-300 text-lg mt-0.5">✗</span>
+                        <div>
+                            <div class="text-brand-dark text-sm font-medium">Delayed reimbursement cycles</div>
+                            <p class="text-brand-mid text-xs font-light mt-0.5">Manual billing queues mean claims sit 3–7 days before submission, pushing revenue out by weeks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- After -->
+            <div class="bg-brand-dark p-8">
+                <div class="section-label mb-6" style="color:var(--rose)">With Our Automation System</div>
+                <div class="space-y-4">
+                    <div class="flex gap-3 items-start">
+                        <span class="text-brand-rose text-lg mt-0.5">✓</span>
+                        <div>
+                            <div class="text-cream text-sm font-medium">Notes drafted in real time during the visit</div>
+                            <p class="text-xs font-light mt-0.5" style="color:rgba(222,201,192,0.65);">Provider dictates naturally — AI structures the SOAP note, flags missing elements, and submits for quick review.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-brand-rose text-lg mt-0.5">✓</span>
+                        <div>
+                            <div class="text-cream text-sm font-medium">Insurance verified in 8 minutes at intake</div>
+                            <p class="text-xs font-light mt-0.5" style="color:rgba(222,201,192,0.65);">Automated verification runs the moment a patient submits their intake form — before they even book.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-brand-rose text-lg mt-0.5">✓</span>
+                        <div>
+                            <div class="text-cream text-sm font-medium">Claim denial rate drops to 6%</div>
+                            <p class="text-xs font-light mt-0.5" style="color:rgba(222,201,192,0.65);">AI coding suggestions, pre-submission audits, and payer-specific rule checks eliminate the most common denial triggers.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-brand-rose text-lg mt-0.5">✓</span>
+                        <div>
+                            <div class="text-cream text-sm font-medium">Claims submitted same day</div>
+                            <p class="text-xs font-light mt-0.5" style="color:rgba(222,201,192,0.65);">Automated billing queue routes claims within hours of the visit — accelerating the reimbursement cycle significantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System components -->
+        <div class="fade-in delay-2">
+            <h3 class="font-serif text-2xl font-light text-brand-dark mb-8 text-center">System Components</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/25 bg-brand-rose/6">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">Voice Dictation Engine</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Provider speaks naturally during or immediately after the visit. Medical-grade transcription converts speech to text with 98%+ accuracy, including clinical terminology.</p>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/25 bg-brand-rose/6">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">AI SOAP Note Structuring</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Dictation is automatically structured into Subjective, Objective, Assessment, and Plan sections — formatted to your EHR's template and flagged if any required fields are incomplete.</p>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/25 bg-brand-rose/6">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">ICD-10 &amp; CPT Code Suggestion</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">AI reads the completed note and suggests the most accurate diagnosis (ICD-10) and procedure (CPT) codes with confidence scores — providers confirm or adjust with one click.</p>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/25 bg-brand-rose/6">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <div class="section-label mb-2">Pre-Submission Claim Audit</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Every claim is checked against payer-specific rules before submission — catching missing modifiers, bundling conflicts, and documentation gaps that commonly trigger denials.</p>
+                </div>
+
+                <div class="bg-white border border-cream-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/25 bg-brand-rose/6">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="section-label mb-2">Automated Billing Queue</div>
+                    <p class="text-brand-mid text-sm font-light leading-relaxed">Approved claims are routed to your clearinghouse automatically — no manual export, no batch upload delays. Most claims submit within hours of the patient visit.</p>
+                </div>
+
+                <div class="bg-brand-dark p-6">
+                    <div class="w-9 h-9 mb-4 flex items-center justify-center border border-brand-rose/30">
+                        <svg class="w-4 h-4 text-brand-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <div class="section-label mb-2" style="color:var(--gold)">Revenue Cycle Dashboard</div>
+                    <p class="text-sm font-light leading-relaxed" style="color:rgba(222,201,192,0.65);">Real-time view of claims submitted, pending, paid, and denied — with denial reason analysis and one-click appeal generation for common rejection types.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="py-16 bg-brand-dark">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+        <div class="grid md:grid-cols-3 gap-6 fade-in">
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Included in Setup</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Dictation engine configuration</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>EHR note template mapping</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Payer rule library setup</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Clearinghouse integration</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Provider training sessions</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>BAA agreements for all tools</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Compatible With</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Epic, Athenahealth, Kareo</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Jane App, SimplePractice</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Change Healthcare, Availity</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Office Ally, Waystar</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>All major clearinghouses</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Custom billing software via API</li>
+                </ul>
+            </div>
+            <div class="border border-brand-rose/15 p-7">
+                <div class="section-label mb-3" style="color:var(--gold)">Timeline</div>
+                <ul class="space-y-2 text-sm font-light" style="color:rgba(222,201,192,0.70);">
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 1: Discovery &amp; EHR audit</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 2: Build &amp; payer mapping</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 3: Provider testing</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Week 4–5: Full launch</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>30-day post-launch support</li>
+                    <li class="flex gap-2"><span class="text-brand-rose mt-0.5">›</span>Ongoing optimization retainer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-cream">
+    <div class="max-w-2xl mx-auto px-6 text-center fade-in">
+        <div class="section-label mb-4">Ready to Reclaim Your Time After Hours?</div>
+        <h2 class="font-serif font-light text-brand-dark leading-tight mb-6" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">
+            Book a Free 30-Minute Audit<br/><em class="italic text-brand-rose">and See This System in Action</em>
+        </h2>
+        <p class="text-brand-mid font-light text-sm leading-relaxed mb-8">We'll review your current documentation and billing workflow, calculate your current denial rate cost, and show you exactly how much time and revenue this system would recover for your clinic.</p>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 px-10 py-4 bg-brand-dark text-cream text-sm font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark transition-all duration-300 group">
+            Book My Free Audit
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer class="bg-brand-dark border-t border-brand-rose/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html" class="text-sm font-light hover:text-brand-rose transition-colors" style="color:rgba(222,201,192,0.4);">← Back to Orkestrix Solutions</a>
+        <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">© 2026 Orkestrix Solutions. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible'); io.unobserve(x.target);} }), {threshold:0.08});
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
