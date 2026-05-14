@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Free Automation Audit | Orkestrix Solutions</title>
+    <meta name="description" content="Book your free 30-minute automation audit with Orkestrix Solutions. We'll map your clinic's biggest time drains and show you exactly what to automate.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.orkestrixsolutions.com/booking.html">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream:             '#F3EDE5',
+                        'cream-dark':      '#E6DDD4',
+                        'brand-dark':      '#1A1412',
+                        'brand-rose':      '#C09B8D',
+                        'brand-rose-light':'#DEC9C0',
+                        'brand-gold':      '#8B7A56',
+                        'brand-mid':       '#5C4E47',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --cream: #F3EDE5;
+            --dark:  #1A1412;
+            --rose:  #C09B8D;
+            --gold:  #8B7A56;
+        }
+        * { box-sizing: border-box; }
+        body {
+            background-color: var(--dark);
+            color: var(--cream);
+            -webkit-font-smoothing: antialiased;
+        }
+        .section-label {
+            display: inline-block;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--rose);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+        .bar { display:block; width:22px; height:1.5px; background:var(--cream); transition:all 0.3s ease; }
+    </style>
+</head>
+
+<body class="font-sans">
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/96 backdrop-blur-sm border-b border-white/8 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
+
+        <a href="index.html" class="flex items-center gap-3 group">
+            <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#F3EDE5" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#C09B8D" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#F3EDE5" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="2.8" fill="#C09B8D"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[1.05rem] font-semibold tracking-[0.22em] text-cream group-hover:text-brand-rose transition-colors">ORKESTRIX</div>
+                <div class="text-[0.6rem] tracking-[0.28em] text-brand-gold font-medium" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="index.html#about"              class="nav-link text-[0.8rem] font-medium text-cream/70 hover:text-brand-rose transition-colors">About</a>
+            <a href="index.html#automation-systems" class="nav-link text-[0.8rem] font-medium text-cream/70 hover:text-brand-rose transition-colors">Automation Systems</a>
+            <a href="index.html#how-it-works"       class="nav-link text-[0.8rem] font-medium text-cream/70 hover:text-brand-rose transition-colors">How It Works</a>
+            <a href="index.html#faq"                class="nav-link text-[0.8rem] font-medium text-cream/70 hover:text-brand-rose transition-colors">FAQ</a>
+        </div>
+
+        <a href="index.html" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 border border-brand-rose/40 text-cream text-[0.78rem] font-medium tracking-wide hover:bg-brand-rose hover:text-brand-dark hover:border-brand-rose transition-all duration-300">
+            ← Back to Home
+        </a>
+
+        <button id="menu-btn" class="md:hidden flex flex-col gap-[5px] p-2" onclick="toggleMenu()">
+            <span class="bar" id="b1"></span>
+            <span class="bar" id="b2"></span>
+            <span class="bar" id="b3"></span>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/8 bg-brand-dark px-6 py-5 flex flex-col gap-4">
+        <a href="index.html#about"              class="text-sm text-cream/70 font-medium" onclick="toggleMenu()">About</a>
+        <a href="index.html#automation-systems" class="text-sm text-cream/70 font-medium" onclick="toggleMenu()">Automation Systems</a>
+        <a href="index.html#how-it-works"       class="text-sm text-cream/70 font-medium" onclick="toggleMenu()">How It Works</a>
+        <a href="index.html#faq"                class="text-sm text-cream/70 font-medium" onclick="toggleMenu()">FAQ</a>
+        <a href="index.html" class="mt-2 inline-flex justify-center px-6 py-3 border border-brand-rose/40 text-cream text-sm font-medium" onclick="toggleMenu()">← Back to Home</a>
+    </div>
+</nav>
+
+
+<!-- HEADER -->
+<section class="pt-[72px] bg-brand-dark">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-24 text-center">
+        <div class="section-label mb-5">Free · 30 Minutes · No Obligation</div>
+        <h1 class="font-serif font-light text-cream leading-[1.08] mb-6"
+            style="font-size: clamp(2.4rem, 5vw, 3.8rem);">
+            Book Your Free<br/>
+            <em class="italic text-brand-rose">Automation Audit</em>
+        </h1>
+        <p class="font-light leading-relaxed max-w-xl mx-auto mb-4" style="color:rgba(222,201,192,0.68); font-size:1rem;">
+            In 30 minutes we'll map your clinic's biggest time drains, pinpoint your top 3 automation opportunities, and give you a clear picture of the ROI you can expect.
+        </p>
+        <p class="font-light text-sm" style="color:rgba(222,201,192,0.38);">No pitch. No pressure. Just clarity.</p>
+
+        <!-- What to expect -->
+        <div class="mt-12 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
+            <div class="border border-brand-rose/15 px-5 py-4">
+                <div class="section-label mb-1.5">Step 1</div>
+                <div class="text-cream text-sm font-light leading-snug">Pick a time that works for your schedule</div>
+            </div>
+            <div class="border border-brand-rose/15 px-5 py-4">
+                <div class="section-label mb-1.5">Step 2</div>
+                <div class="text-cream text-sm font-light leading-snug">We map your workflow & top automation wins</div>
+            </div>
+            <div class="border border-brand-rose/15 px-5 py-4">
+                <div class="section-label mb-1.5">Step 3</div>
+                <div class="text-cream text-sm font-light leading-snug">You leave with a clear action plan — free</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CALENDLY EMBED -->
+<section class="bg-brand-dark pb-20 px-4">
+    <div class="max-w-3xl mx-auto border border-brand-rose/15">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/orkestrixsolutions/30min?background_color=1A1412&text_color=F3EDE5&primary_color=C09B8D"
+             style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-brand-dark border-t border-brand-rose/10 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <a href="index.html" class="flex items-center gap-3">
+            <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#C09B8D" stroke-width="4"/>
+                <circle cx="50" cy="50" r="34" stroke="#8B7A56" stroke-width="2"/>
+                <polygon points="50,16 20.5,67 79.5,67" stroke="#C09B8D" stroke-width="2"/>
+                <circle cx="50" cy="50" r="2.8" fill="#8B7A56"/>
+            </svg>
+            <div>
+                <div class="font-serif text-[0.85rem] font-semibold tracking-[0.22em] text-cream">ORKESTRIX</div>
+                <div class="text-[0.55rem] tracking-[0.28em] text-brand-gold" style="font-family:Inter,sans-serif;">SOLUTIONS</div>
+            </div>
+        </a>
+
+        <div class="flex gap-7 text-[0.72rem] tracking-wide" style="color:rgba(222,201,192,0.4);">
+            <a href="index.html#about"              class="hover:text-brand-rose transition-colors">About</a>
+            <a href="index.html#automation-systems" class="hover:text-brand-rose transition-colors">Automation Systems</a>
+            <a href="index.html#how-it-works"       class="hover:text-brand-rose transition-colors">How It Works</a>
+            <a href="index.html#faq"                class="hover:text-brand-rose transition-colors">FAQ</a>
+        </div>
+
+        <p class="text-[0.7rem] tracking-wide" style="color:rgba(222,201,192,0.28);">
+            © 2026 Orkestrix Solutions. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.style.boxShadow = window.scrollY > 20
+            ? '0 1px 24px rgba(26,20,18,0.25)'
+            : 'none';
+    });
+
+    let menuOpen = false;
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        const menu = document.getElementById('mobile-menu');
+        const b1 = document.getElementById('b1');
+        const b2 = document.getElementById('b2');
+        const b3 = document.getElementById('b3');
+        menu.classList.toggle('hidden', !menuOpen);
+        b1.style.transform = menuOpen ? 'rotate(45deg) translate(4.5px, 4.5px)' : '';
+        b2.style.opacity   = menuOpen ? '0' : '1';
+        b3.style.transform = menuOpen ? 'rotate(-45deg) translate(4.5px, -4.5px)' : '';
+    }
+</script>
+
+</body>
+</html>
